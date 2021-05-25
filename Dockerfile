@@ -25,4 +25,4 @@ ENV ms_teams_webhook_link
 ENV rule_file_name
 
 # Entrypoint to The Script(s)
-ENTRYPOINT ["/scripts/run-cfn-binary.sh", "$ms_teams_webhook_link", "$rule_file_name"]
+ENTRYPOINT ["/scripts/run-cfn-binary.sh"]
