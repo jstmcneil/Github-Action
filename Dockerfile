@@ -15,7 +15,7 @@ COPY docker-scripts/failed-check-teams.py /scripts/failed-check-teams.py
 COPY docker-scripts/passed-check-teams.py /scripts/passed-check-teams.py
 COPY docker-scripts/python-checkforcfn.py /scripts/python-checkforcfn.py
 COPY docker-scripts/run-cfn-binary.sh /scripts/run-cfn-binary.sh
-chmod -R 777 scripts
+RUN chmod -R 777 scripts
 
 # Grab Ruleset
 COPY global_policies.ruleset /global_policies.ruleset
