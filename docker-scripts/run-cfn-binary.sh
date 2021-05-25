@@ -1,4 +1,6 @@
 #!/bin/bash
+pwd
+ls -a
 python_script=$(find -name python-checkforcfn.py)
 # Replace w/ paramatarized ruleset.
 outputted=$(find -name global_policies.ruleset)
