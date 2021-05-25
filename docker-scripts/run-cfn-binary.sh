@@ -5,7 +5,7 @@ echo "ROOT-ED:"
 cd ..
 ls -a
 echo "HOME:"
-cd home
+cd workflow
 ls -a
 python_script="/scripts/python-checkforcfn.py"
 # Replace w/ paramatarized ruleset.
