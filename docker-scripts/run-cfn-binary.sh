@@ -1,9 +1,9 @@
 #!/bin/bash
 pwd
 ls -a
-python_script=$(find -name python-checkforcfn.py)
+python_script="/scripts/python-checkforcfn.py"
 # Replace w/ paramatarized ruleset.
-outputted=$(find -name global_policies.ruleset)
+outputted-"/global_policies.ruleset"
 if ! [[ -n $outputted ]]; then
   echo "No rule-file found w/ %ruleset-file% name."
   exit 1
