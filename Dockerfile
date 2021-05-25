@@ -20,9 +20,5 @@ chmod -R 777 scripts
 # Grab Ruleset
 COPY global_policies.ruleset /global_policies.ruleset
 
-# Set Env Variables
-ENV ms_teams_webhook_link
-ENV rule_file_name
-
 # Entrypoint to The Script(s)
 ENTRYPOINT ["/scripts/run-cfn-binary.sh"]
