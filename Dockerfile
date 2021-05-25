@@ -17,6 +17,9 @@ COPY docker-scripts/python-checkforcfn.py /scripts/python-checkforcfn.py
 COPY docker-scripts/run-cfn-binary.sh /scripts/run-cfn-binary.sh
 chmod -R 777 scripts
 
+# Grab Ruleset
+COPY global_policies.ruleset /global_policies.ruleset
+
 # Set Env Variables
 ENV ms_teams_webhook_link
 ENV rule_file_name
