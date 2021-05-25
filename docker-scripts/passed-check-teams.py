@@ -1,4 +1,5 @@
 import pymsteams
+import sys
 
 # You must create the connectorcard object with the Microsoft Webhook URL
 myTeamsMessage = pymsteams.connectorcard(sys.argv[1])
