@@ -9,7 +9,7 @@ good = []
 bad = []
 for filename in os.listdir('results/'):
   myMessageSection = pymsteams.cardsection()
-  myTeamsMessage = pymsteams.connectorcard(sys,argv[1])
+  myTeamsMessage = pymsteams.connectorcard(sys.argv[1])
   myTeamsMessage.text("**[" + str(i) + "/" + str(tot) + "] CFN-GUARD REPORT FOR:** _" + filename.split(".")[0] + ".json_")
   if (os.stat('results/' + filename).st_size != 0):
     myTeamsMessage.color("#FF6347")
@@ -46,7 +46,7 @@ for filename in os.listdir('results/'):
   myTeamsMessage.send()
   i = i + 1
 
-myTeamsMessage = pymsteams.connectorcard(sys,argv[1])
+myTeamsMessage = pymsteams.connectorcard(sys.argv[1])
 myTeamsMessage.color("#0000FF")
 myTeamsMessage.text("**[" + str(i) + "/" + str(tot) + "] CFN-GUARD DIGEST & SUMMARY**")
 if bad:
