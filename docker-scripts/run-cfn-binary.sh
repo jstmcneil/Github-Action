@@ -3,7 +3,7 @@ pwd
 ls -a
 python_script="/scripts/python-checkforcfn.py"
 # Replace w/ paramatarized ruleset.
-outputted-"/global_policies.ruleset"
+outputted="/global_policies.ruleset"
 if ! [[ -n $outputted ]]; then
   echo "No rule-file found w/ %ruleset-file% name."
   exit 1
