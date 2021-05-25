@@ -24,4 +24,4 @@ done
 echo "##RESULTS PAGE##"
 ls results/
 # Runs next step w/ webhook attached.
-bash env-var-condition.sh $argv[1]
+bash /scripts/env-var-condition.sh $argv[1]
