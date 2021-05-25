@@ -1,0 +1,20 @@
+name: 'Docker-Action'
+description: 'Checks files w/ CFN-Guard and posts results to Teams webhook.'
+inputs:
+  ms-teams-webhook:  # id of input
+    description: 'Webhook to post results to.'
+    required: true
+    default: 'World'
+  rule-file-name:  # id of input
+    description: 'Specific file-name to run against'
+    required: true
+    default: 'World'
+outputs:
+  time: # id of output
+    description: 'The time we greeted you'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.ms-teams-webhook }}
+    - ${{ inputs.rule-file-name }}
