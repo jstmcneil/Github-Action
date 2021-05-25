@@ -1,0 +1,55 @@
+# Global Required Policies - The folliwng cfn-guard policies will be run against CloudFormation Templates and will output a fail if any policies are violated.
+
+#EC2-001
+AWS::EC2::SecurityGroupIngress CidrIp != 0.0.0.0/0 << [EC2-001] : EC2 instances must not be exposed directly to open traffic (0.0.0.0/0)
+AWS::EC2::SecurityGroup SecurityGroupIngress.CidrIp != 0.0.0.0/0 << [EC2-001] : EC2 instances must not be exposed directly to open traffic (0.0.0.0/0)
+
+#EC2-008
+AWS::EC2::Volume Encrypted == true << [EC2-008] : EC2 volumes should be encrypted
+
+#LA-001
+#Insert Lambda Public Accesible Rule Here
+
+#S3-001
+AWS::S3::Bucket PublicAccessBlockConfiguration.BlockPublicAcls == true << [S3-001] : S3 should be set to block public ACLs
+AWS::S3::Bucket PublicAccessBlockConfiguration.BlockPublicPolicy == true << [S3-001] : S3 should be set to block public policies
+AWS::S3::Bucket PublicAccessBlockConfiguration.IgnorePublicAcls == true << [S3-001] : S3 should be set to ignore public ACLs
+AWS::S3::Bucket PublicAccessBlockConfiguration.RestrictPublicBuckets == true << [S3-001] : S3 should be set to restrict public buckets
+
+AWS::S3::AccessPoint PublicAccessBlockConfiguration.BlockPublicAcls == true << [S3-001] : S3 should be set to block public ACLs
+AWS::S3::AccessPoint PublicAccessBlockConfiguration.BlockPublicPolicy == true << [S3-001] : S3 should be set to block public policies
+AWS::S3::AccessPoint PublicAccessBlockConfiguration.IgnorePublicAcls == true << [S3-001] : S3 should be set to ignore public ACLs
+AWS::S3::AccessPoint PublicAccessBlockConfiguration.RestrictPublicBuckets == true << [S3-001] : S3 should be set to restrict public buckets
+
+#S3-002
+AWS::S3::Bucket BucketEncryption.ServerSideEncryptionConfiguration == /.*/ << [S3-002] : S3 bucket encryption should be enabled
+
+#S3-011
+AWS::S3::Bucket Tags == /.*/ << [S3-011] : S3 Bucket should contain tags
+
+#EFS-002
+AWS::EFS::FileSystem Encrypted == true << [EFS-002] : EFS file system should be encrypted
+
+#RDS-002
+AWS::RDS::DBInstance StorageEncrypted == true << [RDS-002] : Storage encryption should be enabled
+
+#RDS-004
+AWS::RDS::DBInstance PubliclyAccessible == false << [RDS-004] : Databasae should not be publicly accessible
+
+#DY-001
+AWS::DynamoDB::Table SSESpecification.SSEEnabled == true << [DY-001] : DynamoDB tables should be encrypted with CMKs
+
+#RS-002
+AWS::Redshift::Cluster Encrypted == true << [RS-002] : Storage encryption should be enabled
+
+#RS-003
+AWS::Redshift::Cluster PubliclyAccessible == false << [RS-003] : Databasae should not be publicly accessible
+
+#IAM-001
+AWS::IAM::Role AssumeRolePolicyDocument.Statement.0.Action.0 != *  << [IAM-001] : Avoid wildcard operations when specifying IAM actions
+
+#IAM-005
+AWS::IAM::Policy PolicyName != * << [IAM-005] : IAM identities must not have inline policy attached (i.e. users, group, roles)
+
+#IAM-006
+AWS::IAM::Role AssumeRolePolicyDocument.Statement.0.Action.0 != *.NotAction  << [IAM-006] : IAM policies must not allow "NotAction"
