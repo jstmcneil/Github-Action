@@ -1,12 +1,4 @@
 #!/bin/bash
-pwd
-ls -a
-echo "ROOT-ED:"
-cd ..
-ls -a
-echo "HOME:"
-cd workflow
-ls -a
 python_script="/scripts/python-checkforcfn.py"
 # Replace w/ paramatarized ruleset.
 outputted="/global_policies.ruleset"
