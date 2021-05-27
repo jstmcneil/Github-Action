@@ -49,29 +49,3 @@ For direct usage within TeamCity, either clone this repo or download the [Projec
 3. Fill out import scope.
 
 ![alt text](/res/actual-import.gif)
-
-Given that this TeamCity project was developed on the same version as UAL's TeamCity server, this import should be seamless. From this point, it is up to individual application teams to fill out their own build configurations stemming from the defined **Empty-Recursive-Template**. A good place to start is [here](#Inputs).
-
-**CFM REPO**: a link to the repository where your CloudFormation templates live.
-
-**CFM Credentials**: the credentials (user/pass) for authorization to the above repository.
-
-**Webhook URL**: the link to the Microsoft Teams webhook where your output will be sent.
-
-**Ruleset File**: name of the ruleset file w/o a path. This is for when there are multiple ruleset files to use, and does not need to be set at this time.
-
-#### Import
-For direct usage within TeamCity, either clone this repo or download the [Project Import Zip](TeamCity-PaC-Dockerized.zip). Then, as an TeamCity adminstrator/super-user, do the following (relevant documentation for each step is linked):
-1. Navigate to the Adminstration page on TeamCity.
-
-![alt text](/res/admin-page-gif.gif)
-
-2. Click on Project Import & select the download .zip as the source.
-
-![alt text](/res/project-import.gif)
-
-3. Fill out import scope.
-
-![alt text](/res/actual-import.gif)
-
-Given that this TeamCity project was developed on the same version as UAL's TeamCity server, this import should be seamless. From this point, it is up to individual application teams to fill out their own build configurations stemming from the defined **Empty-Recursive-Template**. A good place to start is [here](#Inputs).
