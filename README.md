@@ -19,7 +19,7 @@ The following serves as a high-level flowchart of the component source files as 
 **Ruleset File**: name of the ruleset file w/o a path. This is for when there are multiple ruleset files to use, and does not need to be set at this time.
 
 #### Import
-For direct usage within TeamCity, either clone this repo or download the [Project Import Zip](https://github.pwc.com/jake-a-mcneil/CFM-PaC/blob/master/TeamCity-PolicyAsCode-Import.zip). Then, as an TeamCity adminstrator/super-user, do the following (relevant documentation for each step is linked):
+For direct usage within TeamCity, either clone this repo or download the [Project Import Zip](TeamCity-PaC-Dockerized.zip). Then, as an TeamCity adminstrator/super-user, do the following (relevant documentation for each step is linked):
 1. Navigate to the Adminstration page on TeamCity.
 
 ![alt text](/res/admin-page-gif.gif)
