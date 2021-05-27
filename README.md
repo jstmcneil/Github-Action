@@ -27,14 +27,7 @@ The following serves as a high-level flowchart of the component source files as 
 
 ![alt text](https://github.com/jstmcneil/Github-Action/blob/main/res/pac-flow-readme.png)
 
-### Inputs
-Parameter        | Usage
----------------  | -------------
-FM REPO          | a link to the repository where your CloudFormation templates live.
-CFM Credentials  | the credentials (user/pass) for authorization to the above repository. 
-Webhook URL      | the link to the Microsoft Teams webhook where your output will be sent.
-Ruleset File     | the link to the Microsoft Teams webhook where your output will be sent.the link to the Microsoft Teams webhook where your output will be sent.
-
+### Inputs 
 **CFM REPO**: a link to the repository where your CloudFormation templates live.
 
 **CFM Credentials**: the credentials (user/pass) for authorization to the above repository.
