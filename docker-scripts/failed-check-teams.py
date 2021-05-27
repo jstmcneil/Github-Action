@@ -68,6 +68,4 @@ if good:
     j = j + 1
   myTeamsMessage.addSection(goodSection)
 myTeamsMessage.send()
-# Warn instead of fail here.
-#if %warn-instead-of-fail%:
-#  print("FAILED-CODE-PYTHON")
+print("FAILED-CODE-PYTHON")
