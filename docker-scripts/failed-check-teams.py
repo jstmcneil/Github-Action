@@ -10,14 +10,15 @@ bad = []
 for filename in os.listdir('results/'):
   myMessageSection = pymsteams.cardsection()
   myTeamsMessage = pymsteams.connectorcard(sys.argv[1])
-  raw_file_name = filename.split(".")
-  myTeamsMessage.text("**[" + str(i) + "/" + str(tot) + "] CFN-GUARD REPORT FOR:** _" + raw_file_name[0] + "." + raw_file_name[1])
+  component_name = filename.split(".")
+  raw_file_name = component_name[0] + "." + component_name[1]
+  myTeamsMessage.text("**[" + str(i) + "/" + str(tot) + "] CFN-GUARD REPORT FOR:** _" + raw_file_name + "_")
   if (os.stat('results/' + filename).st_size != 0):
     myTeamsMessage.color("#FF6347")
     # Creating Section
     totalIssues = pymsteams.cardsection()
     # Constructing the body of the message
-    body = "❌ Your template has failed some baseline policies. The issues are listed below:\n"
+    body = "❌  Your template has failed some baseline policies. The issues are listed below:\n"
 
     with open('results/' + filename, 'r') as program:
       data = program.readlines()
@@ -31,7 +32,7 @@ for filename in os.listdir('results/'):
           program.write('\n%s' % (line))
           toAdd = "**" + line.rstrip() + "**"
           totalIssues.activityText(toAdd)
-          bad.append((filename, line.rstrip()))
+          bad.append((raw_file_name, line.rstrip()))
     myMessageSection.activityText(body)
     myTeamsMessage.addSection(myMessageSection)
     myTeamsMessage.addSection(totalIssues)
@@ -41,7 +42,7 @@ for filename in os.listdir('results/'):
     body = "✔ Your code templates have passed all configuration checks!"
     myMessageSection.activityText(body)
     myTeamsMessage.addSection(myMessageSection)
-    good.append(filename)
+    good.append(raw_file_name)
 
   # send the message.
   myTeamsMessage.send()
