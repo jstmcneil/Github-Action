@@ -10,7 +10,8 @@ bad = []
 for filename in os.listdir('results/'):
   myMessageSection = pymsteams.cardsection()
   myTeamsMessage = pymsteams.connectorcard(sys.argv[1])
-  myTeamsMessage.text("**[" + str(i) + "/" + str(tot) + "] CFN-GUARD REPORT FOR:** _" + filename.split(".")[0] + ".json_")
+  raw_file_name = filename.split(".")
+  myTeamsMessage.text("**[" + str(i) + "/" + str(tot) + "] CFN-GUARD REPORT FOR:** _" + raw_file_name[0] + "." + raw_file_name[1])
   if (os.stat('results/' + filename).st_size != 0):
     myTeamsMessage.color("#FF6347")
     # Creating Section
