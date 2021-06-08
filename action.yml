@@ -18,3 +18,4 @@ runs:
   args:
     - ${{ inputs.ms-teams-webhook }}
     - ${{ inputs.rule-file-name }}
+    - ${{ inputs.use-teams-webhook }}
