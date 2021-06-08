@@ -11,7 +11,6 @@ mkdir results
 find . -type f \( -iname \*.yaml -o -iname \*.json -o -iname \*.yml \) -follow -print0 | while read -d $'\0' f
 do
   base_name="$(basename -- $f)"
-  base_name=$(echo "$base_name" | cut -f 1 -d '.')
   python $python_script $f
   ret=$?
   if [[ $ret -eq 0 ]]; then
