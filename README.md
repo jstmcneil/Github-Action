@@ -34,3 +34,5 @@ For direct usage within TeamCity, either clone this repo or download the [Projec
 3. Fill out import scope.
 
 ![alt text](/res/actual-import.gif)
+
+And with that, you should be able to run this project w/ your attached parameters!
