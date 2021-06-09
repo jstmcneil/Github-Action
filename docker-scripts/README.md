@@ -8,7 +8,7 @@ There are two bash scripts used in this project.
 ### Python Scripts
 There are three python scripts used in this project.
 
-**python-checkforcfn.py**: Uses JSON/YAML tags to decide if a given file is a CloudFormation template. If it is, the CFN-Guard will be run on it.
+**python-checkforcfn.py**: Uses tags to decide if a given file is a CloudFormation template. If it is, the CFN-Guard will be run on it.
 
 **failed-check-teams.py**: If any _cfn-guard_ rule-checks failed for any CloudFormation file, then this script will run. This script will send one Teams message for each CloudFormation file in the repository. If no violations were found for a given file, then affirmative message will be sent. If violations were found for a given file, a failing message with the specific failed policy, resource, and value will be sent. Finally, a digest report is sent to Teams describing a summary of the run. 
 
