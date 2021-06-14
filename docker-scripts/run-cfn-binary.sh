@@ -1,4 +1,5 @@
 #!/bin/bash
+echo $1
 python_script="/scripts/python-checkforcfn.py"
 # Replace w/ paramatarized ruleset.
 outputted="/global_policies.ruleset"
