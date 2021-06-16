@@ -22,4 +22,4 @@ done
 echo "##RESULTS PAGE##"
 ls results/
 # Runs next step w/ webhook attached.
-bash /scripts/env-var-condition.sh $1
+bash /scripts/env-var-condition.sh ${1:-none}
