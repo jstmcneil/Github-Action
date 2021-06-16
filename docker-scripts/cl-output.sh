@@ -1,5 +1,4 @@
 #! /bin/bash
-cd ..
 for f in results/*
 do
     if [ -s $f ]; then
