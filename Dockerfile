@@ -19,6 +19,7 @@ RUN chmod -R 777 scripts
 
 # Grab Ruleset
 COPY global_policies.ruleset /global_policies.ruleset
+COPY metrics.json /metrics.json
 
 # Entrypoint to The Script(s)
 ENTRYPOINT ["/scripts/run-cfn-binary.sh"]
