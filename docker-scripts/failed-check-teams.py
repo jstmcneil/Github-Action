@@ -31,7 +31,7 @@ def createCard(filename, count: int, total: int, webhook: str, listOfBad: list, 
           line = re.sub(r'\[(.*?)\]', r'\033[37m\g<0>\033[0m', line.rstrip())
           print('\033[0m%d.  %s' % (number + 1, line))
         else:
-          program.write('\n%s' % (line))
+          program.write('\n%s' % (line.rstrip()))
           print('%s' % (line))
           toAdd = "**" + line.rstrip() + "**"
           totalIssues.activityText(toAdd)
@@ -94,7 +94,7 @@ def onlyCommandLine(filename, count: int, total: int, listOfBad: list, listOfGoo
           print('\033[0m{:<3s} {:>7s}'.format(str(number+1)+".", line))
         else:
           program.write('\n%s' % (line))
-          print('%s' % (line))
+          print('%s' % (line.rstrip()))
           listOfBad.append((raw_file_name, line.split(":")[1]))
     print("\033[37m---------------------\033[0m")
   else:
