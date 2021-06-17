@@ -16,6 +16,6 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.ms-teams-webhook }}
     - ${{ inputs.rule-file-name }}
+    - ${{ inputs.ms-teams-webhook }}
     - ${{ inputs.use-teams-webhook }}
