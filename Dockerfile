@@ -2,6 +2,7 @@ FROM python:latest
 # Downloads Relevant Python Libraries
 RUN pip install pymsteams
 RUN pip install pyyaml
+RUN pip install tabulate
 
 # Installs CFN-GUARD
 RUN wget https://github.com/aws-cloudformation/cloudformation-guard/releases/download/1.0.0/cfn-guard-linux-1.0.0.tar.gz
@@ -15,7 +16,6 @@ COPY docker-scripts/failed-check-teams.py /scripts/failed-check-teams.py
 COPY docker-scripts/passed-check-teams.py /scripts/passed-check-teams.py
 COPY docker-scripts/python-checkforcfn.py /scripts/python-checkforcfn.py
 COPY docker-scripts/run-cfn-binary.sh /scripts/run-cfn-binary.sh
-COPY docker-scripts/cl-output.sh /scripts/cl-output.sh
 RUN chmod -R 777 scripts
 
 # Grab Ruleset
