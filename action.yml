@@ -18,3 +18,4 @@ runs:
   args:
     - ${{ inputs.rule-file-name }}
     - ${{ inputs.ms-teams-webhook }}
+    - ${{ inputs.color_style }} # can be dark, light, or default.
