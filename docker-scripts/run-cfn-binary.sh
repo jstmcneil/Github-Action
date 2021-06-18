@@ -18,8 +18,6 @@ do
   	cfn-guard check -r $outputted -t $f >> results/${base_name}.txt
   fi
 done
-
-echo "##RESULTS PAGE##"
-ls results/
+echo -e "\n"
 # Runs next step w/ webhook attached.
 bash /scripts/env-var-condition.sh ${2:-}
