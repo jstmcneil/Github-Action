@@ -20,4 +20,4 @@ do
 done
 echo -e "\n"
 # Runs next step w/ webhook attached.
-bash /scripts/env-var-condition.sh ${2:-}
+bash /scripts/env-var-condition.sh ${2:-} ${3:-}
