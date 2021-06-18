@@ -10,9 +10,6 @@ from tabulate import tabulate
 # p2: webhook URL --> (optional)
 # Call is like: python3 failed-check-teams.py p1 p2
 
-## Global Fields
-MAIN_COLOR = OFF_COLOR = ""
-
 # Sets output colors scheme for command line output.
 def colorSchemeIntialize():
   if len(sys.argv) < 2:
@@ -139,11 +136,12 @@ def sort_tuple_list(tup):
 def sorround_color(string: str):
   return "{}".format(OFF_COLOR) + string + "{}".format(MAIN_COLOR)
 
-# Driver Program
+## Global Fields
+MAIN_COLOR, OFF_COLOR = colorSchemeIntialize()
+
 def main():
   good, bad = [], []
   i, tot = 1, len(os.listdir('results/')) + 1
-  MAIN_COLOR, OFF_COLOR = colorSchemeIntialize()
   for file in os.listdir('results/'):
     if (len(sys.argv) > 2):
       createCard(file, i, tot, sys.argv[2], bad, good)
