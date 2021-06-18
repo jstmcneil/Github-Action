@@ -80,23 +80,22 @@ def onlyCommandLine(filename, count: int, total: int, listOfBad: list, listOfGoo
   component_name = filename.split(".")
   raw_file_name = component_name[0] + "." + component_name[1]
   if (os.stat('results/' + filename).st_size != 0):
-    print("\n\033[0mErrors for \033[37m[" + raw_file_name + "]\033[0m CloudFormation Template:")
-    print("\033[37m---------------------\033[0m")
-
+    header = ("\033[0mErrors for \033[37m[" + raw_file_name + "]\033[0m CloudFormation Template:")
     with open('results/' + filename, 'r') as program:
       data = program.readlines()
 
     with open('results/' + filename, 'w') as program:
+      output = ""
       for (number, line) in enumerate(data):
         if (number != (len(data) - 1)):
           program.write('%d.  %s\n' % (number + 1, line))
           line = re.sub(r'\[(.*?)\]', r'\033[37m\g<0>\033[0m', line.rstrip())
-          print('\033[0m{:<3s} {:>7s}'.format(str(number+1)+".", line))
+          output = output + ('\033[0m{:<3s} {:>7s}\n'.format(str(number+1)+".", line))
         else:
           program.write('\n%s' % (line))
-          print('%s' % (line.rstrip()))
+          footer = ('%s' % (line.rstrip()))
           listOfBad.append((raw_file_name, line.split(":")[1]))
-    print("\033[37m---------------------\033[0m")
+    print(tabulate({header: [output, footer]}, headers="keys", tablefmt="fancy_grid"), "\n")
   else:
     listOfGood.append((raw_file_name, "0"))
 
@@ -114,5 +113,5 @@ if (len(sys.argv) > 1):
   generateSummaryCard(sys.argv[1], tot, bad, good)
 combined = bad + good
 print("\n\u001b[31m✖ Failed:\u001b[0m Some of your code templates failed policy checks.")
-print(tabulate(combined, headers=['CloudFormation File', 'Failures'], tablefmt="grid"))
+print(tabulate(combined, headers=['CloudFormation File', 'Failures'], tablefmt="fancy_grid"))
 print("FAILED-CODE-PYTHON")

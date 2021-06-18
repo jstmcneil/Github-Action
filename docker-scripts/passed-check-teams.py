@@ -12,7 +12,7 @@ if (len(sys.argv) > 1):
 	myMessageSection = pymsteams.cardsection()
 
 	# Constructing the body of the message
-	body = "✔ All of your code templates have passed all configuration checks!"
+	body = "All of your code templates have passed all configuration checks!"
 
 	# Add text to the message.
 	myMessageSection.activityText(body)
@@ -21,4 +21,4 @@ if (len(sys.argv) > 1):
 	# send the message.
 	myTeamsMessage.send()
 else:
-	print("\033[32m✔ Passed: \033[0mYour code templates have passed all configuration checks!")
+	print("\033[32m Passed: \033[0mYour code templates have passed all configuration checks!")
