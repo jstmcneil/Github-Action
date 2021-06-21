@@ -5,12 +5,11 @@ import os
 
 # Checking Specific File: only YAML & JSON inputs.
 with open(sys.argv[1], "r") as file:
-	print(file)
 	filename, file_extension = os.path.splitext(sys.argv[1])
 	if file_extension.lower() == ".yaml" or file_extension == ".yml":
-		data = yaml.load(filename, Loader=yaml.FullLoader)
+		data = yaml.load(file, Loader=yaml.BaseLoader)
 	else:
-		data = json.load(filename)
+		data = json.load(file)
 	if ("AWSTemplateFormatVersion" in data or "Resources" in data):
 		# If we have CFM template fields, sucessfully exit.
 		sys.exit(0)
