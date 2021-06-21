@@ -3,12 +3,15 @@ description: 'Checks files w/ CFN-Guard and posts results to Teams webhook.'
 inputs:
   ms-teams-webhook:  # id of input
     description: 'Webhook to post results to.'
-    required: true
-    default: 'World'
+    required: false
   rule-file-name:  # id of input
     description: 'Specific file-name to run against'
     required: true
     default: 'World'
+  color_style:  # id of input
+    description: 'Color style to present results, can be: light, dark, default'
+    required: true
+    default: 'default'
 outputs:
   time: # id of output
     description: 'The time we greeted you'
