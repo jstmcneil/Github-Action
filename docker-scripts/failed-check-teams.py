@@ -89,7 +89,7 @@ def generateSummaryCard(webhook: str, total: str, listOfBad: list, listOfGood: l
     badSection.activityText("❌ The following templates have failed baseline checks:")
     j = 1
     for (name, issues) in listOfBad:
-      toAdd =  "_" + name + "_ failed _" + str(issues) + "_ policy checks."
+      toAdd =  "_" + name + "_ failed _" + str(issues).strip() + "_ policy checks."
       badSection.addFact(j, toAdd)
       j = j + 1
     myTeamsMessage.addSection(badSection)
