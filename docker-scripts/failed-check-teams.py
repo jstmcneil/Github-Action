@@ -26,10 +26,10 @@ def colorSchemeIntialize():
     OFF_COLOR   = "\033[37m"  #GRAY
   elif sys.argv[1] == 'light':
     MAIN_COLOR  = "\033[30m"  #BLACK
-    OFF_COLOR   = "\033[36m"  #CYAN
+    OFF_COLOR   = "\033[30m"  #GRAY
   elif sys.argv[1] == 'default':
     MAIN_COLOR  = "\033[0m"   #WHITE
-    OFF_COLOR   = "\033[36m"  #CYAN
+    OFF_COLOR   = "\033[30m"  #GRAY
   return MAIN_COLOR, OFF_COLOR
 
 # Intializes pymsteams card for a template.
@@ -152,7 +152,7 @@ def main():
     generateSummaryCard(sys.argv[2], tot, bad, good)
   bad = sort_tuple_list(bad)
   combined = bad + [("TOTAL", str(sum(int(i[1]) for i in bad)))]
-  print("\n\033[31m✖ Failed:\033[0mTemplates failed policy checks.")
+  print("\n\033[31m✖ Failed: \033[0mTemplates failed policy checks.")
   print("{}".format(MAIN_COLOR) + tabulate(combined, headers=[sorround_color('CloudFormation File'), sorround_color('Failures')], tablefmt="fancy_grid"))
   print("FAILED-CODE-PYTHON")
 
