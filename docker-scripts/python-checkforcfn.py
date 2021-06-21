@@ -5,6 +5,7 @@ import os
 
 # Checking Specific File: only YAML & JSON inputs.
 with open(sys.argv[1], "r") as file:
+	print(file)
 	filename, file_extension = os.path.splitext(sys.argv[1])
 	if file_extension.lower() == ".yaml" or file_extension == ".yml":
 		data = yaml.load(file)
