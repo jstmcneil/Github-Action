@@ -21,8 +21,7 @@ def colorSchemeIntialize():
     print("Options include: '{0}dark{1}', '{0}light{1}', or '{0}default{1}'.".format("\033[33m", "\033[0m"))
     print("Use command: python3 failed-check-teams.py <{0}color-scheme{1}> <{0}optional-webhook{1}>\n".format("\033[33m", "\033[0m"))
     exit(1)
-  print("Color Scheme Input: {}".format(sys.argv[1])
-  if sys.argv[1] == 'dark':
+  elif sys.argv[1] == 'dark':
     MAIN_COLOR  = "\033[0m"   #WHITE
     OFF_COLOR   = "\033[37;1m"  #GRAY
   elif sys.argv[1] == 'light':
@@ -31,8 +30,9 @@ def colorSchemeIntialize():
   elif sys.argv[1] == 'default':
     MAIN_COLOR  = "\033[0m"   #WHITE
     OFF_COLOR   = "\033[37;1m"  #GRAY
+  print("Color Scheme Input: {}".format(sys.argv[1])
   return MAIN_COLOR, OFF_COLOR
-
+  
 # Intializes pymsteams card for a template.
 def createCard(filename, count: int, total: int, webhook: str, listOfBad: list, listOfGood: list):
   myTeamsMessage = pymsteams.connectorcard(webhook)
