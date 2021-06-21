@@ -20,5 +20,4 @@ if (len(sys.argv) > 1):
 
 	# send the message.
 	myTeamsMessage.send()
-else:
-	print("\033[32m Passed: \033[0mYour code templates have passed all configuration checks!")
+print("\033[32m Passed: \033[0mYour code templates have passed all configuration checks!")
