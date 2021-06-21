@@ -25,8 +25,8 @@ def colorSchemeIntialize():
     MAIN_COLOR  = "\033[0m"   #WHITE
     OFF_COLOR   = "\033[37;1m"  #GRAY
   elif sys.argv[1] == 'light':
-    MAIN_COLOR  = "\033[37m"  #BLACK
-    OFF_COLOR   = "\033[30m"  #GRAY
+    MAIN_COLOR  = "\033[30m;1m"  #BLACK
+    OFF_COLOR   = "\033[33m"  #GRAY
   elif sys.argv[1] == 'default':
     MAIN_COLOR  = "\033[0m"   #WHITE
     OFF_COLOR   = "\033[37;1m"  #GRAY
