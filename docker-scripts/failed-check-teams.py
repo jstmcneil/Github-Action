@@ -17,7 +17,7 @@ def colorSchemeIntialize():
     print("Options include: '{0}dark{1}', '{0}light{1}', or '{0}default{1}'.\n".format("\033[33m", "\033[0m"))
     exit(1)
   elif sys.argv[1] not in ['dark', 'light', 'default']:
-    print("\n\033[31m" + "ERROR: " + "\033[0m" + "non-selectable color scheme {}{}{} provided as first parameter.".format("\033[33m", sys.argv[1], "\033[0m")))
+    print("\n\033[31m" + "ERROR: " + "\033[0m" + "non-selectable color scheme {}'{}'{} provided as first parameter.".format("\033[33m", sys.argv[1], "\033[0m")))
     print("Options include: '{0}dark{1}', '{0}light{1}', or '{0}default{1}'.".format("\033[33m", "\033[0m"))
     print("Use command: python3 failed-check-teams.py <{0}color-scheme{1}> <{0}optional-webhook{1}>\n".format("\033[33m", "\033[0m"))
     exit(1)
