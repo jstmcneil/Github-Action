@@ -3,9 +3,7 @@ import json
 import yaml
 import os
 
-# Checking Specific File: only YAML & JSON inputs.
-print("{}: {}".format(sys.argv[1], str(os.stat(sys.argv[1]).st_size)))
-if os.stat(sys.argv[1]).st_size == 0:
+if os.stat(sys.argv[1]).st_size < 5:
 	print("Empty file: {}".format(sys.argv[1]))
 	sys.exit(1)
 	      
