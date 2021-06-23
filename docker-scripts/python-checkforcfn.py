@@ -4,9 +4,11 @@ import yaml
 import os
 
 # Checking Specific File: only YAML & JSON inputs.
+if os.stat(sys.argv[1]).st_size == 0:
+	print("Empty file: {}".format(sys.argv[1]))
+	sys.exit(1)
+	      
 with open(sys.argv[1], "r") as file:
-	if os.stat(file).st_size == 0:
-		sys.exit(1)
 	filename, file_extension = os.path.splitext(sys.argv[1])
 	if file_extension.lower() == ".yaml" or file_extension == ".yml":
 		data = yaml.load(file, Loader=yaml.BaseLoader)
