@@ -36,7 +36,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: jstmcneil/cfn-guard-python:2.0
+          tags: jstmcneil/cfn-guard-python:latest
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
