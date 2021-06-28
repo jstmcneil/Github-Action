@@ -9,6 +9,7 @@ if ! [[ -n $outputted ]]; then
 fi
 
 mkdir results
+echo "Files in order of scanned: "
 find . -type f \( -iname \*.yaml -o -iname \*.json -o -iname \*.yml \) -follow -print0 | while read -d $'\0' f
 do
   base_name="$(basename -- $f)"
