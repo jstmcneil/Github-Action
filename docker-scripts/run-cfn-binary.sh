@@ -21,8 +21,8 @@ do
 done
 echo -e "\n"
 # Runs next step w/ webhook attached.
-if [ -z "$3" ]; then
-  bash /scripts/env-var-condition.sh $2
-else
-  bash /scripts/env-var-condition.sh $3 $2
-fi
+#if [ -z "$3" ]; then
+ # bash /scripts/env-var-condition.sh $2
+#else
+ # bash /scripts/env-var-condition.sh $3 $2
+#fi
