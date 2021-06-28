@@ -23,10 +23,10 @@ def colorSchemeIntialize():
     exit(1)
   elif sys.argv[1] == 'dark':
     MAIN_COLOR  = "\033[0m"   #WHITE
-    OFF_COLOR   = "\033[37;1m"  #GRAY
+    OFF_COLOR   = "\033[33m"  #GRAY
   elif sys.argv[1] == 'light':
     MAIN_COLOR  = "\033[30m"  #BLACK
-    OFF_COLOR   = "\033[33m"  #GRAY
+    OFF_COLOR   = "\033[37m"  #GRAY
   elif sys.argv[1] == 'default':
     MAIN_COLOR  = "\033[0m"   #WHITE
     OFF_COLOR   = "\033[37;1m"  #GRAY
@@ -118,8 +118,9 @@ def onlyCommandLine(filename, count: int, total: int, listOfBad: list, listOfGoo
       for (number, line) in enumerate(data):
         if (number != (len(data) - 1)):
           program.write('%d.  %s\n' % (number + 1, line))
+          line = re.sub("(.{156})", "\\1\n    ", line, 0, re.DOTALL)
           line = re.sub(r'\[(.*?)\]', r'{}'.format(OFF_COLOR) + '\g<0>' + '{}'.format(MAIN_COLOR), line.rstrip())
-          output = output + ('{}{:<3s} {:>7s}\n'.format(MAIN_COLOR, str(number+1)+".", line))
+          output = output + ('{}{:<3s} {:>7s}\n\n'.format(MAIN_COLOR, str(number+1)+".", line))
         else:
           program.write('\n%s' % (line))
           footer = ('%s' % (line.rstrip()))

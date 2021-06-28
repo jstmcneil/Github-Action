@@ -5,9 +5,9 @@ RUN pip install pyyaml
 RUN pip install tabulate
 
 # Installs CFN-GUARD
-RUN wget https://github.com/aws-cloudformation/cloudformation-guard/releases/download/1.0.0/cfn-guard-linux-1.0.0.tar.gz
-RUN tar -xvf cfn-guard-linux-1.0.0.tar.gz
-RUN cp -R cfn-guard-linux/cfn-guard /usr/sbin
+RUN wget https://github.com/aws-cloudformation/cloudformation-guard/releases/download/2.0.3/cfn-guard-v2-ubuntu-latest.tar.gz
+RUN tar -xvf cfn-guard-v2-ubuntu-latest.tar.gz
+RUN cp -R cfn-guard-v2-ubuntu-latest/cfn-guard /usr/sbin
 
 # Grabs Execution Scripts
 RUN mkdir scripts
@@ -23,4 +23,5 @@ COPY global_policies.ruleset /global_policies.ruleset
 COPY metrics.json /metrics.json
 
 # Entrypoint to The Script(s)
-ENTRYPOINT ["/scripts/run-cfn-binary.sh"]
+# ENTRYPOINT ["/scripts/run-cfn-binary.sh"]
+# CMD ["bin/bash"]
