@@ -1,3 +1,0 @@
-number = 1
-line = "[DynamoDBTable] failed because [SSESpecification.SSEEnabled] is [false] and [DY-001] : DynamoDB tables should be encrypted with CMKs"
-print('\033[0m{:<3s} {:>7s}'.format(str(number)+".", line))

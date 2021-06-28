@@ -16,7 +16,7 @@ do
   python $python_script $f
   ret=$?
   if [[ $ret -eq 0 ]]; then
-  	cfn-guard check -r $outputted -t $f >> results/${base_name}.txt
+  	/scripts/cfn-guard-data-wrangle $outputted $f >> results/${base_name}.txt
   fi
 done
 echo -e "\n"
