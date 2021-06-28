@@ -245,16 +245,15 @@ rule S3_003 when %aws_s3_bucketpolicy_resources !empty {
 #S3-006
 let your_bucket = Resources.*[ Type == 'AWS::S3::Bucket' ]
 let your_bucket_with_logging_configuration = %your_bucket[ Properties.LoggingConfiguration EXISTS ]
-let your_bucket_without_logging_configuration = %your_bucket[ Properties.LoggingConfiguration NOT EXISTS ]
 
 #Sub-Rule 1
 rule S3_006_01 when %your_bucket_with_logging_configuration !empty {
-    %your_bucket_with_logging_configuration.LoggingConfiguration EXISTS << S3-006: S3 Server Access Logging must be enabled on source bucket >>
+    %your_bucket.Properties.LoggingConfiguration EXISTS << S3-006: S3 Server Access Logging must be enabled on source bucket >>
 }
 
 #Sub-Rule 2
-rule S3_006_02 when %your_bucket_without_logging_configuration !empty {
-    %your_bucket_without_logging_configuration.AccessControl == 'LogDeliveryWrite' << S3-006: S3 destination bucket should have LogDeliveryWrite as the AccessControl >>
+rule S3_006_02 when %your_bucket_with_logging_configuration empty {
+    %your_bucket.Properties.AccessControl == 'LogDeliveryWrite' << S3-006: S3 destination bucket should have LogDeliveryWrite as the AccessControl >>
 }
 
 #S3-007
