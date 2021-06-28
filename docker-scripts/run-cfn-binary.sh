@@ -22,6 +22,8 @@ do
     numb="$(cat results/${base_name}.txt | grep "Resource \[" | wc -l)"
     if [[ $numb -ne 0 ]]; then
       echo -e "Total Failures: "  | sed -e '$s%$%'"$numb"'%' >> results/${base_name}.txt
+    else
+      rm results/${base_name}.txt
     fi
   fi
 done
