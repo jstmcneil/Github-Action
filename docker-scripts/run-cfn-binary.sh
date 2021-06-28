@@ -17,7 +17,8 @@ do
   python $python_script $f
   ret=$?
   if [[ $ret -eq 0 ]]; then
-  	/scripts/cfn-guard-data-wrangle.sh $outputted $f > results/${base_name}.txt
+    echo $f > results/${base_name}.txt
+  	/scripts/cfn-guard-data-wrangle.sh $outputted $f >> results/${base_name}.txt
     numb="$(cat results/${base_name}.txt | grep "Resource \[" | wc -l)"
     if [[ $numb -ne 0 ]]; then
       echo -e "Total Failures: "  | sed -e '$s%$%'"$numb"'%' >> results/${base_name}.txt

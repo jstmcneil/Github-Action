@@ -109,14 +109,15 @@ def onlyCommandLine(filename, count: int, total: int, listOfBad: list, listOfGoo
   component_name = filename.split(".")
   raw_file_name = component_name[0] + "." + component_name[1]
   if (os.stat('results/' + filename).st_size != 0):
-    header = ("{}Errors for {}[".format(MAIN_COLOR, OFF_COLOR) + raw_file_name + "]{} CloudFormation Template:".format(MAIN_COLOR))
     with open('results/' + filename, 'r') as program:
       data = program.readlines()
-
     with open('results/' + filename, 'w') as program:
       output = ""
+      header = ""
       for (number, line) in enumerate(data):
-        if (number != (len(data) - 1)):
+        if (number == 0):
+          header = ("{}Errors for {}[".format(MAIN_COLOR, OFF_COLOR) + line.rstrip() + "]{} CloudFormation Template:".format(MAIN_COLOR))
+        elif (number != (len(data) - 1)):
           program.write('%d.  %s\n' % (number + 1, line))
           line = re.sub("(.{156})", "\\1\n    ", line, 0, re.DOTALL)
           line = re.sub(r'\[(.*?)\]', r'{}'.format(OFF_COLOR) + '\g<0>' + '{}'.format(MAIN_COLOR), line.rstrip())
