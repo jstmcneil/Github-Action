@@ -2,7 +2,7 @@
 echo $1
 python_script="/scripts/python-checkforcfn.py"
 # Replace w/ paramatarized ruleset.
-outputted="/global_policies.ruleset"
+outputted="/ruleset_migrated.guard"
 if ! [[ -n $outputted ]]; then
   echo "No rule-file found w/ %ruleset-file% name."
   exit 1
