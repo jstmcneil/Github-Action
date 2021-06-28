@@ -114,6 +114,7 @@ def onlyCommandLine(filename, count: int, total: int, listOfBad: list, listOfGoo
     with open('results/' + filename, 'w') as program:
       output = ""
       header = ""
+      footer = ""
       for (number, line) in enumerate(data):
         if (number == 0):
           header = ("{}Errors for {}[".format(MAIN_COLOR, OFF_COLOR) + line.rstrip() + "]{} CloudFormation Template:".format(MAIN_COLOR))
