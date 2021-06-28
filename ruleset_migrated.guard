@@ -229,7 +229,7 @@ rule LA_003 when %aws_serverless_function_resources !empty {
 let aws_lambda_function = Resources.*[ Type == "AWS::Lambda::Function" ]
 rule LA_005 when %aws_lambda_function !empty {
     %aws_lambda_function.Properties {
-        Properties.KmsKeyArn EXISTS <<LA-005: Lambda enviornment variables must be encrypted at rest>>
+        KmsKeyArn EXISTS <<LA-005: Lambda enviornment variables must be encrypted at rest>>
     }
 }
 
