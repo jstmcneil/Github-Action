@@ -121,7 +121,7 @@ def onlyCommandLine(filename, count: int, total: int, listOfBad: list, listOfGoo
         elif (number != (len(data) - 1)):
           program.write('%d.  %s\n' % (number, line))
           #line = re.sub("(.{200})", "\\1\n    ", line, 0, re.DOTALL)
-          print("OG: " + line)
+          print("OG: " + line.rstrip())
           line = re.sub(r'\[(.*?)\]', r'{}'.format(OFF_COLOR) + '\g<0>' + '{}'.format(MAIN_COLOR), line.rstrip())
           print("NEW: " + line)
           output = output + ('{}{:<3s} {:>7s}\n\n'.format(MAIN_COLOR, str(number)+".", line))
