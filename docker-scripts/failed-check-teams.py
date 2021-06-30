@@ -122,7 +122,7 @@ def onlyCommandLine(filename, count: int, total: int, listOfBad: list, listOfGoo
           program.write('%d.  %s\n' % (number, line))
           line = re.sub("(.{200})", "\\1\n    ", line, 0, re.DOTALL)
           line = re.sub(r'\[(.*?)\]', r'{}'.format(OFF_COLOR) + '\g<0>' + '{}'.format(MAIN_COLOR), line.rstrip())
-          output = output + ('{}{:<3s} {:>7s}\n\n'.format(MAIN_COLOR, str(number+1)+".", line))
+          output = output + ('{}{:<3s} {:>7s}\n\n'.format(MAIN_COLOR, str(number)+".", line))
         else:
           program.write('\n%s' % (line))
           footer = ('%s' % (line.rstrip()))
