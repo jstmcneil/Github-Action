@@ -123,11 +123,12 @@ def onlyCommandLine(filename, count: int, total: int, listOfBad: list, listOfGoo
           line = re.sub("(.{200})", "\\1\n    ", line, 0, re.DOTALL)
           line = re.sub(r'\[(.*?)\]', r'{}'.format(OFF_COLOR) + '\g<0>' + '{}'.format(MAIN_COLOR), line.rstrip())
           output = output + ('{}{:<3s} {:>7s}\n\n'.format(MAIN_COLOR, str(number)+".", line))
+          print(output)
         else:
           program.write('\n%s' % (line))
           footer = ('%s' % (line.rstrip()))
           listOfBad.append((raw_file_name, line.split(":")[1]))
-    print("{}".format(MAIN_COLOR) + tabulate({header: [output, footer]}, headers="keys", tablefmt="fancy_grid"), "\n")
+    #print("{}".format(MAIN_COLOR) + tabulate({header: [output, footer]}, headers="keys", tablefmt="fancy_grid"), "\n")
   else:
     listOfGood.append((raw_file_name, "0"))
 
