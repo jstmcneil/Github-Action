@@ -259,7 +259,7 @@ rule S3_006_02 when %your_bucket_with_logging_configuration empty {
 #S3-007
 let aws_cloudtrail_trail = Resources.*[ Type == "AWS::CloudTrail::Trail" ]
 rule S3_007 WHEN %aws_cloudtrail_trail NOT EMPTY {
-    %aws_cloudtrail_trail {
+    %aws_cloudtrail_trail.Properties {
         Properties.IsLogging == true
         Properties.S3BucketName EXISTS
         Properties.EventSelectors[*].DataResources[*].Type == "AWS::S3::Object"
