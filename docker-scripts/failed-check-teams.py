@@ -120,15 +120,16 @@ def onlyCommandLine(filename, count: int, total: int, listOfBad: list, listOfGoo
           header = ("{}Errors for {}[".format(MAIN_COLOR, OFF_COLOR) + line.rstrip() + "]{} CloudFormation Template:".format(MAIN_COLOR))
         elif (number != (len(data) - 1)):
           program.write('%d.  %s\n' % (number, line))
-          line = re.sub("(.{200})", "\\1\n    ", line, 0, re.DOTALL)
+          #line = re.sub("(.{200})", "\\1\n    ", line, 0, re.DOTALL)
+          print(line)
           line = re.sub(r'\[(.*?)\]', r'{}'.format(OFF_COLOR) + '\g<0>' + '{}'.format(MAIN_COLOR), line.rstrip())
+          print(line)
           output = output + ('{}{:<3s} {:>7s}\n\n'.format(MAIN_COLOR, str(number)+".", line))
-          print(output)
         else:
           program.write('\n%s' % (line))
           footer = ('%s' % (line.rstrip()))
           listOfBad.append((raw_file_name, line.split(":")[1]))
-    #print("{}".format(MAIN_COLOR) + tabulate({header: [output, footer]}, headers="keys", tablefmt="fancy_grid"), "\n")
+    #\print("{}".format(MAIN_COLOR) + tabulate({header: [output, footer]}, headers="keys", tablefmt="fancy_grid"), "\n")
   else:
     listOfGood.append((raw_file_name, "0"))
 
