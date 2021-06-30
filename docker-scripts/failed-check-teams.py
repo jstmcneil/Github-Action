@@ -127,7 +127,7 @@ def onlyCommandLine(filename, count: int, total: int, listOfBad: list, listOfGoo
           program.write('\n%s' % (line))
           footer = ('%s' % (line.rstrip()))
           listOfBad.append((raw_file_name, line.split(":")[1]))
-    #\print("{}".format(MAIN_COLOR) + tabulate({header: [output, footer]}, headers="keys", tablefmt="fancy_grid"), "\n")
+    print("{}".format(MAIN_COLOR) + tabulate({header: [output, footer]}, headers="keys", tablefmt="fancy_grid"), "\n")
   else:
     listOfGood.append((raw_file_name, "0"))
 
