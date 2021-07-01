@@ -1,4 +1,4 @@
-Table of contents
+Table of Contents
 =================
 <!--ts-->
    * [Table of Contents](#table-of-contents)
