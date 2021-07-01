@@ -49,3 +49,5 @@ You can input these if you want to be able to quickly switch the VCS-Root. Essen
 - github-cfm-repo
 - github-repo-password
 - github-repo-username
+
+#### Failure Conditions
