@@ -22,6 +22,20 @@ Setting up the CFN-Guard binary in TeamCity is a relatively simple process. In s
 In terms of time required, the first option is shorter, but may not be avaialble to all team members. If the project is already imported by another team, you may be able to reuse it as an asset. Otherwise, you can use the second option to import the build steps manually in order adapt it directly to your existing pipeline structures.
 
 ## Import Project
+For direct usage within TeamCity, either clone this repo or download the [Project Import Zip](/TeamCity-PaC-Dockerized.zip). Then, as an TeamCity adminstrator/super-user, do the following (relevant documentation for each step is linked):
+1. Navigate to the Adminstration page on TeamCity.
+
+![alt text](/res/admin-page-gif.gif)
+
+2. Click on Project Import & select the download .zip as the source.
+
+![alt text](/res/project-import.gif)
+
+3. Fill out import scope.
+
+![alt text](/res/actual-import.gif)
+
+And with that, you should be able to run this project w/ your attached parameters!
 
 ## Manually Add Steps
 There are several pages that need to be setup for the given build-step/project: _version-control settings_, _build-steps_, _failure-conditions_, and _parameters_. The below steps show all the required information for each of these settings.
