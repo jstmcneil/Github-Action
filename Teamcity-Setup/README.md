@@ -51,3 +51,34 @@ You can input these if you want to be able to quickly switch the VCS-Root. Essen
 - github-repo-username
 
 ### Failure Conditions
+There are two failure conditions to add to the build. However, these are optional in the event that you only want your build to _warn_ you instead of failing outright. For both failures, a screenshot and the resulting Kotlin DSL is shown. From these, you should be able to replicate the enviroment.
+#### Policy Failures
+This failure results from your CloudFormation scripts not passing the policies.
+##### Screenshot
+##### DSL
+```
+failOnText {
+    id = "BUILD_EXT_1"
+    conditionType = BuildFailureOnText.ConditionType.CONTAINS
+    pattern = "FAILED-CODE-PYTHON"
+    failureMessage = "Policies did not pass baseline requirements."
+    reverse = false
+    stopBuildOnFailure = true
+}
+```
+Essentially, the docker container will output a "FAILED-CODE-PYTHON" message upon policies failing. This failure rule will trigger a build failure.
+#### Ruleset Failures
+If you are using alternate rulesets (only one is provided at this time), then the build can be failed in the instance that the ruleset is unable to be found.
+##### Screenshot
+##### DSL
+```
+failOnText {
+    id = "BUILD_EXT_2"
+    conditionType = BuildFailureOnText.ConditionType.CONTAINS
+    pattern = "No rule-file found w/ %ruleset-file% name."
+    failureMessage = "No rule-file could be found with the supplied name."
+    reverse = false
+    stopBuildOnFailure = true
+}
+```
+The docker container will post the "No rule-file found w/ %ruleset-file% name" message in the instance the ruleset cannot be found; thus, failing the build.
