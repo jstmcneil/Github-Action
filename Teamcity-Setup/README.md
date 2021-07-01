@@ -50,15 +50,16 @@ Below is a screenshot of the list of parameters required by the build-step. For 
 #### Customization Info:
 These values are for implementation-specific information.
 - app-key-CI: no default.
-- color-scheme: default should be light.
-- webhook-url: default should be empty.
-- ruleset-file: default should be global_policies.ruleset.
+- color-scheme: default should be _"light"_.
+- webhook-url: no default.
+- ruleset-file: default should be _"global_policies.ruleset"_.
 
 #### GitHub Info (optional):
 You can input these if you want to be able to quickly switch the VCS-Root. Essentially, you are paramtarizing the username/repo/password values in the VCS-Root section. This is purely for quality of life and has nothing to do with CFN-Guard.
 - github-cfm-repo
 - github-repo-password
 - github-repo-username
+No defaults are needed for any of these are they are specific to your VCS Root.
 
 ### 4. Failure Conditions
 There are two failure conditions to add to the build. However, these are optional in the event that you only want your build to _warn_ you instead of failing outright. For both failures, a screenshot and the resulting Kotlin DSL is shown. From these, you should be able to replicate the enviroment.
