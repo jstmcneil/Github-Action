@@ -138,8 +138,19 @@ Every file in the output will have a corresponding table containing its policy f
 
 ![Failure-Ex](/res/failure-example.png)
 
+At the top, the path of the CloudFormation script relative to the VCS Root repository is shown. Each line in the table is a single policy failure. The specific rule is mentioned there, which can be used to trace back the required properties. 
+
 Additionally, a summary table containing a count of all the failures for each file is included.
 
 ![Failure-Summary](/res/summary-table.png)
 
+This can be used to prioritize remediation efforts for each CloudFormation script.
+
 #### Teams Webhook
+The Teams output is very similar to that of the build log. A card is generated for every CloudFormation file that the CFN-Guard build-step scanned. Then, like the build log, the output provides the specific policy infringements for that failed check.
+
+![Webhook-Ex](/res/webhook_ex.png)
+
+Finally, a summary table is printed that shows which files failed and which ones passed.
+
+![Webhook-Summary](/res/webhook_summary.png)
