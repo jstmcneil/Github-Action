@@ -9,7 +9,7 @@ Table of contents
      * [Inputs](#local)
      * [Output](#public)
 <!--te-->
-=================
+
 # TeamCity Setup
 Setting up the CFN-Guard binary in TeamCity is a relatively simple process. In short, there are two options for importing the process.
 1. Import the projct directly.
