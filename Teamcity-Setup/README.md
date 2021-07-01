@@ -5,7 +5,7 @@ Table of contents
    * [TeamCity Setup](#TeamCity-Setup)
       * [Import Project](#stdin)
       * [Manually Add Steps](#local-files)
-   * [Running the Steps](#dependency)
+   * [Running the Pipeline](#dependency)
      * [Inputs](#local)
      * [Output](#public)
 <!--te-->
