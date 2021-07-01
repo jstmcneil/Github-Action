@@ -5,11 +5,11 @@ Table of contents
    * [TeamCity Setup](#TeamCity-Setup)
       * [Import Project](#stdin)
       * [Manually Add Steps](#local-files)
-   * [Running the Pipeline](#dependency)
+   * [Running The Pipeline](#Running-The-Pipeline)
      * [Inputs](#local)
      * [Output](#public)
 <!--te-->
-
+=================
 # TeamCity Setup
 Setting up the CFN-Guard binary in TeamCity is a relatively simple process. In short, there are two options for importing the process.
 1. Import the projct directly.
@@ -82,3 +82,5 @@ failOnText {
 }
 ```
 The docker container will post the "No rule-file found w/ %ruleset-file% name" message in the instance the ruleset cannot be found; thus, failing the build.
+
+# Running The Pipeline
