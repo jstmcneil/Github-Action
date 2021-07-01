@@ -21,14 +21,15 @@ In terms of time required, the first option is shorter, but may not be avaialble
 
 ## Manually Add Steps
 There are several pages that need to be setup for the given build-step/project: _version-control settings_, _build-steps_, _failure-conditions_, and _parameters_. The below steps show all the required information for each of these settings.
-### Version Control Settings
+
+### 1. Version Control Settings
 Connect the VCS-Root that houses all of your CloudFormation templates. The scan will check all CloudFormation scripts in this repository for issues. Set up the root as you normally would.
 
 ![VCS Root](/res/manual-vcs-root.png)
 
 No other specific details are needed for this step.
 
-### Build-Step
+### 2. Build-Step
 You can either import this manually, or use a metarunner. This metarunner is located in this directory, or can be accessed directly [here.](./metarunner.xml) Instructions for metarunner input can be found within TeamCity's documentation.
 
 Since the solution/scripts are entirely localized to a docker image, only a single build step is needed. Create a command-line build-step which will be used to call the docker-run command. There are certain parameters referenced in this step, as shown below. It's important to maintain the **order** in which the arguments are passed to the docker command. If you do not want to utilize a Teams webhook (descibed in inputs), then just leave the parameter itself empty.
@@ -41,7 +42,7 @@ artifactory.ual.com/oetdevops/security-images/cfn-guard-pac:2.0
 ```
 The docker image will handle the remainder of the scripting implementation.
 
-### Parameters
+### 3. Parameters
 Below is a screenshot of the list of parameters required by the build-step. For a description of how to fill these out, or what they're used for, please seek out the [Inputs]() section. This section merely describes what parameters are needed/what defaults to set.
 
 ![Paremeters](/res/manual-parameter.png)
@@ -59,7 +60,7 @@ You can input these if you want to be able to quickly switch the VCS-Root. Essen
 - github-repo-password
 - github-repo-username
 
-### Failure Conditions
+### 4. Failure Conditions
 There are two failure conditions to add to the build. However, these are optional in the event that you only want your build to _warn_ you instead of failing outright. For both failures, a screenshot and the resulting Kotlin DSL is shown. From these, you should be able to replicate the enviroment.
 #### Policy Failures
 This failure results from your CloudFormation scripts not passing the policies.
