@@ -20,3 +20,11 @@ In terms of time required, the first option is shorter, but may not be avaialble
 ### Import Project
 
 ### Manually Add Steps
+There are several pages that need to be setup for the given build-step/project: _version-control settings_, _build-steps_, _failure-conditions_, and _parameters_.
+#### Version Control Settings
+Connect the VCS-Root that houses all of your CloudFormation templates. The scan will check all CloudFormation scripts in this repository for issues. Set up the root as you normally would.
+
+No other specific details are needed for this step.
+
+#### Build-Step
+Since the solution/scripts are entirely localized to a docker image, only a single build step is needed. Create a command-line build-step which will be used to call the docker-run command. There are certain parameters referenced in this step, as shown below. It's important to maintain the **order** in which the arguments are passed to the docker command. If you do not want to utilize a Teams webhook (descibed in inputs), then just leave the parameter itself empty. 
