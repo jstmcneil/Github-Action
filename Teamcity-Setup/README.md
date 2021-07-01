@@ -29,7 +29,8 @@ Connect the VCS-Root that houses all of your CloudFormation templates. The scan 
 No other specific details are needed for this step.
 
 ### Build-Step
-You can either import this manually, or use a metarunner. This metarunner is located in this directory, or can be accessed directly [here.](./metarunner.xml)
+You can either import this manually, or use a metarunner. This metarunner is located in this directory, or can be accessed directly [here.](./metarunner.xml) Instructions for metarunner input can be found within TeamCity's documentation.
+
 Since the solution/scripts are entirely localized to a docker image, only a single build step is needed. Create a command-line build-step which will be used to call the docker-run command. There are certain parameters referenced in this step, as shown below. It's important to maintain the **order** in which the arguments are passed to the docker command. If you do not want to utilize a Teams webhook (descibed in inputs), then just leave the parameter itself empty.
 
 ![Build Step](/res/manual_import_build_step.png)
