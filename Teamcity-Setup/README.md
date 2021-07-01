@@ -23,11 +23,9 @@ In terms of time required, the first option is shorter, but may not be avaialble
 There are several pages that need to be setup for the given build-step/project: _version-control settings_, _build-steps_, _failure-conditions_, and _parameters_. The below steps show all the required information for each of these settings.
 
 ### 1. Version Control Settings
-Connect the VCS-Root that houses all of your CloudFormation templates. The scan will check all CloudFormation scripts in this repository for issues. Set up the root as you normally would.
+Connect the VCS-Root that houses all of your CloudFormation templates. The scan will check all CloudFormation scripts in this repository for issues. Set up the root as you normally would. You can (optionally) paramtarize the VCS Details.
 
 ![VCS Root](/res/manual-vcs-root.png)
-
-No other specific details are needed for this step.
 
 ### 2. Build-Step
 You can either import this manually, or use a metarunner. This metarunner is located in this directory, or can be accessed directly [here.](./metarunner.xml) Instructions for metarunner input can be found within TeamCity's documentation.
