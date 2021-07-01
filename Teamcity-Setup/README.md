@@ -122,7 +122,10 @@ This portion of documentation pertains to actually understanding the running pro
 In total, we have seven inputs to the pipeline build step. Three of these are related to paramtarizing the VCS Root, which is optional. As such, only four parameters are used to affect the CFN-Guard build instructions. This section seeks to explain these inputs do, as well as their various options.
 #### Required
 _app-key-CI:_ no default.
+
 _ruleset-file:_ default should be _"global_policies.ruleset"_.
+
 _color-scheme:_ default should be _"light"_.
+
 #### Optional
 _webhook-url:_
