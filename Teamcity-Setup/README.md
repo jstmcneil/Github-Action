@@ -2,7 +2,7 @@ Table of contents
 =================
 
 <!--ts-->
-   * [Table of contents](#table-of-contents)
+   * [Table of Contents](#table-of-contents)
    * [TeamCity Setup](#TeamCity-Setup)
       * [Import Project](#stdin)
       * [Manually Add Steps](#local-files)
