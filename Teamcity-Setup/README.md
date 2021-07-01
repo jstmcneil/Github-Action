@@ -54,8 +54,8 @@ You can input these if you want to be able to quickly switch the VCS-Root. Essen
 There are two failure conditions to add to the build. However, these are optional in the event that you only want your build to _warn_ you instead of failing outright. For both failures, a screenshot and the resulting Kotlin DSL is shown. From these, you should be able to replicate the enviroment.
 #### Policy Failures
 This failure results from your CloudFormation scripts not passing the policies.
-##### Screenshot
-##### Kotlin DSL
+##### Screenshot:
+##### Kotlin DSL:
 ``` Kotlin
 failOnText {
     id = "BUILD_EXT_1"
@@ -69,8 +69,8 @@ failOnText {
 Essentially, the docker container will output a "FAILED-CODE-PYTHON" message upon policies failing. This failure rule will trigger a build failure.
 #### Ruleset Failures
 If you are using alternate rulesets (only one is provided at this time), then the build can be failed in the instance that the ruleset is unable to be found.
-##### Screenshot
-##### Kotlin DSL
+##### Screenshot:
+##### Kotlin DSL:
 ``` Kotlin
 failOnText {
     id = "BUILD_EXT_2"
