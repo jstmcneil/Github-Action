@@ -116,6 +116,4 @@ failOnText {
 ```
 The docker container will post the "No rule-file found w/ %ruleset-file% name" message in the instance the ruleset cannot be found; thus, failing the build.
 
-And with that, you should be able to run this project w/ your attached parameters! See the [Running The Pipeline](#Running-The-Pipeline) step for specific documentation related to this.
-
 # Running The Pipeline
