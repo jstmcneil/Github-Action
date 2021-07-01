@@ -117,3 +117,6 @@ failOnText {
 The docker container will post the "No rule-file found w/ %ruleset-file% name" message in the instance the ruleset cannot be found; thus, failing the build.
 
 # Running The Pipeline
+This portion of documentation pertains to actually understanding the running process of the pipeline.
+## Inputs
+In total, we have seven inputs to the pipeline build step. Three of these are related to paramtarizing the VCS Root, which is optional. As such, only four parameters are used to affect the CFN-Guard build instructions. This section seeks to explain these inputs do, as well as their various options.
