@@ -27,4 +27,14 @@ Connect the VCS-Root that houses all of your CloudFormation templates. The scan 
 No other specific details are needed for this step.
 
 #### Build-Step
-Since the solution/scripts are entirely localized to a docker image, only a single build step is needed. Create a command-line build-step which will be used to call the docker-run command. There are certain parameters referenced in this step, as shown below. It's important to maintain the **order** in which the arguments are passed to the docker command. If you do not want to utilize a Teams webhook (descibed in inputs), then just leave the parameter itself empty. 
+Since the solution/scripts are entirely localized to a docker image, only a single build step is needed. Create a command-line build-step which will be used to call the docker-run command. There are certain parameters referenced in this step, as shown below. It's important to maintain the **order** in which the arguments are passed to the docker command. If you do not want to utilize a Teams webhook (descibed in inputs), then just leave the parameter itself empty.
+
+Make sure you pull the correct image. For easy copy/paste, the image is below:
+```
+artifactory.ual.com/oetdevops/security-images/cfn-guard-pac:2.0
+```
+The docker image will handle the remainder of the scripting implementation.
+
+#### Parameters
+Below is a screenshot of the list of parameters required by the build-step. For a description of how to fill these out, or what they're used for, please seek out the [Inputs]() section. This section merely describes what parameters are needed/what defaults to set.
+- 
