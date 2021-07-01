@@ -1,0 +1,27 @@
+<meta-runner name="GitHub Pulling - Recursive">
+  <description>Metarunner</description>
+  <settings>
+    <parameters>
+      <param name="app-key-CI" value="" />
+      <param name="color_scheme" value="light" spec="select display='normal' data_2='light' data_1='dark' data_3='default'" />
+      <param name="github-cfm-repo" value="" spec="text description='This is link to the repo where your CloudFormation template(s) lives. All templates will run against the supplied rule file.' label='CloudFormation Template Repo' validationMode='not_empty' display='normal'" />
+      <param name="github-repo-password" value="zxx775d03cbe80d301b" spec="password description='Password for Github Repo storing the wanted cfn-template.' label='GitHub Password' display='normal'" />
+      <param name="github-repo-username" value="" spec="text description='Username for GitHub authentication. Authenticate to repo where cloudformation template is stored.' label='GitHub Username' validationMode='not_empty' display='normal'" />
+      <param name="ruleset-file" value="global_policies.ruleset" spec="select description='Name of ruleset file to evaluate templates against. Found in rule repository, under policies/.' label='Ruleset File Name' data_1='global_policies.ruleset' display='normal'" />
+      <param name="webhook-url" value="zxx775d03cbe80d301b" spec="password description='This is the URL to your Teams webhook. This field is hidden since no authentication is natively required for webhooks.' label='Webhook' display='normal'" />
+    </parameters>
+    <build-runners>
+      <runner name="CFN-Guard-Docker" type="simpleRunner">
+        <parameters>
+          <param name="command.executable" value="/scripts/run-cfn-binary.sh" />
+          <param name="command.parameters" value="&quot;%ruleset-file%&quot; &quot;%webhook-url%&quot; &quot;%color_scheme%&quot;" />
+          <param name="plugin.docker.imageId" value="artifactory.ual.com/oetdevops/security-images/cfn-guard-pac:2.0" />
+          <param name="plugin.docker.pull.enabled" value="true" />
+          <param name="script.content" value="echo &quot;STARTING DOCKER STEPS:&quot;" />
+          <param name="teamcity.step.mode" value="default" />
+        </parameters>
+      </runner>
+    </build-runners>
+    <requirements />
+  </settings>
+</meta-runner>
