@@ -1,6 +1,5 @@
 Table of contents
 =================
-
 <!--ts-->
    * [Table of Contents](#table-of-contents)
    * [TeamCity Setup](#TeamCity-Setup)
