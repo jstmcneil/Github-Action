@@ -120,12 +120,15 @@ The docker container will post the "No rule-file found w/ %ruleset-file% name" m
 This portion of documentation pertains to actually understanding the running process of the pipeline. It provides context to both the various input and output options that the dockerized solution provides.
 ## Inputs
 In total, we have seven inputs to the pipeline build step. Three of these are related to paramtarizing the VCS Root, which is optional. As such, only four parameters are used to affect the CFN-Guard build instructions. This section seeks to explain these inputs do, as well as their various options.
-#### Required
-_app-key-CI:_ no default.
+#### Required:
+_app-key-CI:_ this input should be your specific 3-letter Application ID. This input is utilized in the output process in order for cleaner build logs. Without this set, the application will fail.
 
-_ruleset-file:_ default should be _"global_policies.ruleset"_.
+_ruleset-file:_ The default value should be _"global_policies.ruleset"_. This input marks the specific ruleset file being used to check your CloudFormation templates against. At this time, there is only one ruleset, which is _"global_policies.ruleset"_. As such, this should be the value in all runs at this time.
 
-_color-scheme:_ default should be _"light"_.
+_color-scheme:_ The default should be _"light"_. This input affects the coloring of the output sent to the build log. The available options are: "default", "light", and "dark". Light should be used in instances of a "light"-colored UI. Dark should be used when the UI is comprised of a darker color scheme. Default is used primarily for testing purposes.
 
-#### Optional
-_webhook-url:_
+#### Optional:
+_webhook-url:_ This input is a link to a **webhook connector on Teams**. The Python script will format card-based message(s) containing the errors in your CloudFormation scripts. The resulting messages will to send to your webhook and will show up in your Teams channel. This is optional, and will only be done if this parameter is set.
+
+
+## Outputs
