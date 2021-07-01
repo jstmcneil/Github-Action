@@ -56,7 +56,7 @@ There are two failure conditions to add to the build. However, these are optiona
 This failure results from your CloudFormation scripts not passing the policies.
 ##### Screenshot
 ##### DSL
-```
+``` Kotlin
 failOnText {
     id = "BUILD_EXT_1"
     conditionType = BuildFailureOnText.ConditionType.CONTAINS
@@ -71,7 +71,7 @@ Essentially, the docker container will output a "FAILED-CODE-PYTHON" message upo
 If you are using alternate rulesets (only one is provided at this time), then the build can be failed in the instance that the ruleset is unable to be found.
 ##### Screenshot
 ##### DSL
-```
+``` Kotlin
 failOnText {
     id = "BUILD_EXT_2"
     conditionType = BuildFailureOnText.ConditionType.CONTAINS
