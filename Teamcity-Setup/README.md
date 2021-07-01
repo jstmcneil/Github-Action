@@ -38,12 +38,14 @@ The docker image will handle the remainder of the scripting implementation.
 #### Parameters
 Below is a screenshot of the list of parameters required by the build-step. For a description of how to fill these out, or what they're used for, please seek out the [Inputs]() section. This section merely describes what parameters are needed/what defaults to set.
 ##### Customization Info:
-- app-key-CI
-- color-scheme
-- webhook-url
-- ruleset-file
+These values are for implementation-specific information.
+- app-key-CI: no default.
+- color-scheme: default should be light.
+- webhook-url: default should be empty.
+- ruleset-file: default should be global_policies.ruleset.
 
 ##### GitHub Info (optional):
+You can input these if you want to be able to quickly switch the VCS-Root. Essentially, you are paramtarizing the username/repo/password values in the VCS-Root section. This is purely for quality of life and has nothing to do with CFN-Guard.
 - github-cfm-repo
 - github-repo-password
 - github-repo-username
