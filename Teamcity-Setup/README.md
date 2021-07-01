@@ -36,5 +36,6 @@ artifactory.ual.com/oetdevops/security-images/cfn-guard-pac:2.0
 The docker image will handle the remainder of the scripting implementation.
 
 #### Parameters
+
 Below is a screenshot of the list of parameters required by the build-step. For a description of how to fill these out, or what they're used for, please seek out the [Inputs]() section. This section merely describes what parameters are needed/what defaults to set.
 - 
