@@ -24,6 +24,8 @@ There are several pages that need to be setup for the given build-step/project: 
 ### Version Control Settings
 Connect the VCS-Root that houses all of your CloudFormation templates. The scan will check all CloudFormation scripts in this repository for issues. Set up the root as you normally would.
 
+![VCS Root](/res/manual-vcs-root.png)
+
 No other specific details are needed for this step.
 
 ### Build-Step
@@ -39,6 +41,9 @@ The docker image will handle the remainder of the scripting implementation.
 
 ### Parameters
 Below is a screenshot of the list of parameters required by the build-step. For a description of how to fill these out, or what they're used for, please seek out the [Inputs]() section. This section merely describes what parameters are needed/what defaults to set.
+
+![Paremeters](/res/manual-parameter.png)
+
 #### Customization Info:
 These values are for implementation-specific information.
 - app-key-CI: no default.
@@ -57,6 +62,9 @@ There are two failure conditions to add to the build. However, these are optiona
 #### Policy Failures
 This failure results from your CloudFormation scripts not passing the policies.
 ##### Screenshot:
+
+![Failure-Cond-Policy](/res/manual-failure-baseline.png)
+
 ##### Kotlin DSL:
 ``` Kotlin
 failOnText {
@@ -72,6 +80,9 @@ Essentially, the docker container will output a "FAILED-CODE-PYTHON" message upo
 #### Ruleset Failures
 If you are using alternate rulesets (only one is provided at this time), then the build can be failed in the instance that the ruleset is unable to be found.
 ##### Screenshot:
+
+![Failure-Cond-Ruleset](/res/manual-failure-ruleset.png)
+
 ##### Kotlin DSL:
 ``` Kotlin
 failOnText {
