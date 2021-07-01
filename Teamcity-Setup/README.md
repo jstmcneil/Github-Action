@@ -3,12 +3,15 @@ Table of Contents
 <!--ts-->
    * [Table of Contents](#table-of-contents)
    * [TeamCity Setup](#TeamCity-Setup)
-      * [Import Project](#stdin)
-      * [Manually Add Steps](#local-files)
-        * test  
+      * [Import Project](#Import-Project)
+      * [Manually Add Steps](#Manually-Add-Steps)
+        * [VCS Root](#Version-Control-Settings)
+        * [Build Step](#Build-Step)
+        * [Parameters](#Parameters)
+        * [Failure Conditions](#Failure-Conditions)  
    * [Running The Pipeline](#Running-The-Pipeline)
-     * [Inputs](#local)
-     * [Output](#public)
+     * [Inputs](#Inputs)
+     * [Outputs](#Outputs)
 <!--te-->
 
 # TeamCity Setup
@@ -28,7 +31,7 @@ Connect the VCS-Root that houses all of your CloudFormation templates. The scan 
 
 ![VCS Root](/res/manual-vcs-root.png)
 
-### 2. Build-Step
+### 2. Build Step
 You can either import this manually, or use a metarunner. This metarunner is located in this directory, or can be accessed directly [here.](./metarunner.xml) Instructions for metarunner input can be found within TeamCity's documentation.
 
 Since the solution/scripts are entirely localized to a docker image, only a single build step is needed. Create a command-line build-step which will be used to call the docker-run command. There are certain parameters referenced in this step, as shown below. It's important to maintain the **order** in which the arguments are passed to the docker command. If you do not want to utilize a Teams webhook (descibed in inputs), then just leave the parameter itself empty.
