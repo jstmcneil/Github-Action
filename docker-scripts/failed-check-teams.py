@@ -12,7 +12,7 @@ from tabulate import tabulate
 
 # Sets output colors scheme for command line output.
 def colorSchemeIntialize():
-  if len(sys.argv) < 2:
+  if len(sys.argv) < 3:
     print("\n\033[31m" + "ERROR: " + "\033[0m" + "please provide a scheme color as your first parameter.")
     print("Options include: '{0}dark{1}', '{0}light{1}', or '{0}default{1}'.\n".format("\033[33m", "\033[0m"))
     exit(1)
@@ -31,7 +31,10 @@ def colorSchemeIntialize():
     MAIN_COLOR  = "\033[0m"   #WHITE
     OFF_COLOR   = "\033[37;1m"  #GRAY
   print("Color Scheme Input: {}".format(sys.argv[1]))
-  print("Application CI: {}".format(sys.argv[3]))
+  if len(sys.argv > 2):
+    print("Application CI: {}".format(sys.argv[3]))
+  else:
+    print("Application CI: {}".format(sys.argv[2]))
   return MAIN_COLOR, OFF_COLOR
   
 # Intializes pymsteams card for a template.
