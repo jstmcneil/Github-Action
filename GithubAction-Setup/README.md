@@ -42,3 +42,14 @@ There are few parameters that need to be changed in order to ensure the applicat
 In order to actually change parameters/inputs, you must navigate to the _policy-as-code.yml_ file that you setup in the previous section(s). Open the file and note the tail-end of the script.
 
 ![GitHub Action Edit](/res/github-action-inputs.png)
+
+Note the input fields that must be editted:
+Required:
+app_CI_key: this input should be your specific 3-letter Application ID. This input is utilized in the output process in order for cleaner build logs. Without this set, the application will fail.
+
+rule-file-name: The default value should be "global_policies.ruleset". This input marks the specific ruleset file being used to check your CloudFormation templates against. At this time, there is only one ruleset, which is "global_policies.ruleset". As such, this should be the value in all runs at this time.
+
+color_style: The default should be "dark". This input affects the coloring of the output sent to the build log. The available options are: "default", "light", and "dark". Light should be used in instances of a "light"-colored UI. Dark should be used when the UI is comprised of a darker color scheme. Default is used primarily for testing purposes.
+
+Optional:
+ms-teams-webhook: This input is a link to a webhook connector on Teams. The Python script will format card-based message(s) containing the errors in your CloudFormation scripts. The resulting messages will to send to your webhook and will show up in your Teams channel. This is optional, and will only be done if this parameter is set. Leave it blank, like shown above, if you do not want to use this functionality. 
