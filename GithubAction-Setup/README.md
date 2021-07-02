@@ -78,3 +78,10 @@ Finally, a summary table is printed that shows which files failed and which ones
 ![Webhook-Summary](/res/webhook_summary.png)
 
 These resources should provide an iterative feedback loop which allows developers to quickly make the required security changes.
+
+## Run Types
+As it is defaultly configured, there are two ways to run this GitHub Action.
+1. Upon every push to the main branch, the GitHub action will run.
+2. To run this manually, go to _Actions > Docker-Run > Run Workflow > Select Branch & Click "Run Workflow"_
+
+There are other ways to trigger a GitHub action. If these default options don't work for you, it is reccomended that you take a look at the documentation in order to produce a solution that works for you.
