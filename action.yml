@@ -7,7 +7,7 @@ inputs:
   rule-file-name:  # id of input
     description: 'Specific file-name to run against'
     required: true
-    default: 'World'
+    default: 'ruleset_migrated.guard'
   color_style:  # id of input
     description: 'Color style to present results, can be: light, dark, default'
     required: true
