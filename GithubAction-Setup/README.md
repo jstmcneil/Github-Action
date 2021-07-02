@@ -54,7 +54,7 @@ _color_style:_ The default should be "dark". This input affects the coloring of 
 _ms-teams-webhook:_ This input is a link to a webhook connector on Teams. The Python script will format card-based message(s) containing the errors in your CloudFormation scripts. The resulting messages will to send to your webhook and will show up in your Teams channel. This is optional, and will only be done if this parameter is set. Leave it blank, like shown above, if you do not want to use this functionality. 
 
 ## Outputs
-Defaulty, output will always be sent to the build log. If the user configured the webhook parameter, then output will be sent there also.
+By default, output will always be sent to the build log. If the user configured the webhook parameter, then output will be sent there also.
 #### Build Log
 Every file in the output will have a corresponding table containing its policy failures. Policies with no failures will not be included.
 
@@ -80,8 +80,8 @@ Finally, a summary table is printed that shows which files failed and which ones
 These resources should provide an iterative feedback loop which allows developers to quickly make the required security changes.
 
 ## Run Types
-As it is defaultly configured, there are two ways to run this GitHub Action.
+As it is configured, there are two ways to run this GitHub Action.
 1. Upon every push to the main branch, the GitHub action will run.
 2. To run this manually, go to _Actions > Docker-Run > Run Workflow > Select Branch & Click "Run Workflow"_
 
-There are other ways to trigger a GitHub action. If these default options don't work for you, it is reccomended that you take a look at the documentation in order to produce a solution that works for you.
+There are other ways to trigger a GitHub action. If these default options don't work for you, it is recommended that you take a look at the documentation in order to produce a solution that works for you.
