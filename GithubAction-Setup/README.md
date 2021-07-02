@@ -82,5 +82,6 @@ These resources should provide an iterative feedback loop which allows developer
 ## Run Types
 As it is defaultly configured, there are two ways to run this GitHub Action.
 1. Upon every push to the main branch, the GitHub action will run.
-2. To run this manually, go to Actions > Docker-Run > Run Workflow > Select Branch & Click "Run Workflow"
+2. To run this manually, go to _Actions > Docker-Run > Run Workflow > Select Branch & Click "Run Workflow"_
+
 There are other ways to trigger a GitHub action. If these default options don't work for you, it is reccomended that you take a look at the documentation in order to produce a solution that works for you.
