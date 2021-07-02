@@ -2,13 +2,13 @@ Table of Contents
 =================
 <!--ts-->
    * [Table of Contents](#table-of-contents)
-   * [GitHub Actions Import](#TeamCity-Setup)
-      * [Duplicate Repository](#TeamCity-Setup)
-      * [Retrofit Existing Repository](#TeamCity-Setup)
-   * [Using GitHub Action]()
-      * [Inputs]()
-      * [Outputs]()
-      * [Run Types]() 
+   * [GitHub Actions Setup](#Github-Actions-Setup)
+      * [Duplicate Repository](#Duplicate-Repository)
+      * [Retrofit Existing Repository](#Retrofit-Existing-Repository)
+   * [Using GitHub Action](#Using-GitHub-Actions)
+      * [Inputs](#inputs)
+      * [Outputs](#outputs)
+      * [Run Types](#run-types) 
 <!--te-->
 
 # Github Actions Setup
