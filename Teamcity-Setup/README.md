@@ -154,3 +154,5 @@ The Teams output is very similar to that of the build log. A card is generated f
 Finally, a summary table is printed that shows which files failed and which ones passed.
 
 ![Webhook-Summary](/res/webhook_summary.png)
+
+These resources should provide an iterative feedback loop which allows developers to quickly make the required security changes.
