@@ -39,4 +39,6 @@ Simply copy the [policy-as-code.yml]() contents into your existing workflows, or
 # Using GitHub Actions
 There are few parameters that need to be changed in order to ensure the application is run correctly for your repository. Additionally, there are considerations for when the policy scan should be run, as well as how to read/extract output.
 ## Inputs
-In order to actually change parameters/inputs, you must navigate to the _policy-as-code.yml_ file that you setup in the previous section(s). Edit the file and note the tail-end of the script.
+In order to actually change parameters/inputs, you must navigate to the _policy-as-code.yml_ file that you setup in the previous section(s). Open the file and note the tail-end of the script.
+
+![GitHub Action Edit](/res/github-action-inputs.png)
