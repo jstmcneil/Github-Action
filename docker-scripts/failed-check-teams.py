@@ -62,9 +62,9 @@ def createCard(filename, count: int, total: int, webhook: str, listOfBad: list, 
           header = ("{}Errors for {}[".format(MAIN_COLOR, OFF_COLOR) + line.rstrip() + "]{} CloudFormation Template:".format(MAIN_COLOR))
         elif (number != (len(data) - 1)):
           program.write('%d.  %s\n' % (number, line))
-          output = output + ('{}{:<3s} {:>7s}\n\n'.format(MAIN_COLOR, str(number)+".", line))
           line = re.sub("(.{200})", "\\1\n    ", line, 0, re.DOTALL)
           line = re.sub(r'\[(.*?)\]', r'{}'.format(OFF_COLOR) + '\g<0>' + '{}'.format(MAIN_COLOR), line.rstrip())
+          output = output + ('{}{:<3s} {:>7s}\n\n'.format(MAIN_COLOR, str(number)+".", line))
           myMessageSection.addFact(number, line)
         else:
           program.write('\n%s' % (line))
