@@ -29,7 +29,7 @@ jobs:
         id: docker-cfn
         uses: ./.github/actions/Policy-as-Code
         with:
-          rule-file-name: 'test.ruleset'
+          rule-file-name: 'ruleset_migrated.guard'
           app_CI_key: 'TES'
           ms-teams-webhook: ''
           color_style: 'dark'
