@@ -31,6 +31,7 @@ def colorSchemeIntialize():
     MAIN_COLOR  = "\033[0m"   #WHITE
     OFF_COLOR   = "\033[37;1m"  #GRAY
   print("Color Scheme Input: {}".format(sys.argv[1]))
+  print("Application CI: {}".format(sys.argv[3]))
   return MAIN_COLOR, OFF_COLOR
   
 # Intializes pymsteams card for a template.
