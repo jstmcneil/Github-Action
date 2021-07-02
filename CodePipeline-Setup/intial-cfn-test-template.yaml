@@ -21,12 +21,12 @@ Parameters:
         The webhook to which your results will be sent to. Leave this blank (default option) if you do not
         want to send your data to a webhook.
       Default: ""
-  Application-CI:
+  ApplicationCI:
     Type: String
     Description: >-
       The 3-character application key (or "CI") belonging to your application.
     Default: ""
-  Ruleset-Name:
+  RulesetName:
     Type: String
     Description: >-
       Name of the ruleset that your CloudFormation templates are run against.
@@ -110,12 +110,37 @@ Resources:
       Roles:
         - !Ref CodePipelineServiceRole
       PolicyDocument:
-        Version: 2012-10-17
         Statement:
-          - Action:
-            - s3:*
-            Resource: "*"
-            Effect: Allow
+        - Sid: CodeBuild
+          Effect: Allow
+          Action:
+          - codebuild:BatchGetBuildBatches
+          - cloudwatch:*
+          - codebuild:StartBuildBatch
+          - codebuild:StartBuild
+          - codebuild:BatchGetBuilds
+          Resource: "*"
+        - Sid: Version
+          Effect: Allow
+          Action:
+          - s3:GetBucketVersioning
+          - s3:PutBucketVersioning
+          Resource: 
+            - !Sub "arn:aws:s3:::${BucketName}"
+        - Sid: ObjectKey
+          Effect: Allow
+          Action:
+          - s3:GetObject
+          - s3:GetObjectVersion
+          Resource: 
+            - !Sub "arn:aws:s3:::${BucketName}/${S3RepoObjectKey}"
+        - Sid: Logging
+          Effect: Allow
+          Action:
+          - s3:PutObject
+          - s3:GetObject
+          - s3:GetObjectVersion
+          Resource: arn:aws:s3:::codepipeline-us-east-1-*/*
 
   CodePipelineServiceRole:
     Type: AWS::IAM::Role
@@ -167,7 +192,7 @@ Resources:
               RunOrder: 1
               Configuration:
                 EnvironmentVariables: !Sub >-
-                  [{"name":"rulesetfile","value":"global_policies.ruleset","type":"PLAINTEXT"},{"name":"webhookurl","value":"${WebhookURL}","type":"PLAINTEXT"},{"name":"color_scheme","value":"default","type":"PLAINTEXT"}]
+                  [{"name":"rulesetfile","value":"${RulesetName}","type":"PLAINTEXT"},{"name":"webhookurl","value":"${WebhookURL}","type":"PLAINTEXT"},{"name":"color_scheme","value":"${ColorScheme}","type":"PLAINTEXT"},{"name":"appCI","value":"${ApplicationCI}","type":"PLAINTEXT"}]
                 ProjectName: !Ref ProjectName
               OutputArtifacts:
                 - Name: BuildArtifact
@@ -190,10 +215,11 @@ Resources:
               rulesetfile: ""
               webhookurl: ""
               color_scheme: ""
+              appCI: ""
           phases:
             build:
               commands:
-                 - /scripts/run-cfn-binary.sh $rulesetfile $webhookurl $color_scheme
+                 - /scripts/run-cfn-binary.sh $rulesetfile $appCI $color_scheme $webhookurl
       Artifacts:
         Type: CODEPIPELINE
       Environment:
