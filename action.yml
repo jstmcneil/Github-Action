@@ -12,13 +12,14 @@ inputs:
     description: 'Color style to present results, can be: light, dark, default'
     required: true
     default: 'default'
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  app_CI_key:  # id of input
+    description: 'Your application key, or app CI.'
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.rule-file-name }}
+    - ${{ inputs.app_CI_key }}
     - ${{ inputs.ms-teams-webhook }}
     - ${{ inputs.color_style }} # can be dark, light, or default.
