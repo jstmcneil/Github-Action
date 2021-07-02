@@ -32,5 +32,5 @@ echo -e "\n"
 if [ -z "$4" ]; then
   bash /scripts/env-var-condition.sh $2 $3
 else
-  bash /scripts/env-var-condition.sh $2 $4 $3
+  bash /scripts/env-var-condition.sh $2 $3 $4
 fi
