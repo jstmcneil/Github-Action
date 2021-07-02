@@ -35,3 +35,6 @@ There is a slight difference between projects that already have GitHub actions c
 
 #### Existing Actions:
 Simply copy the [policy-as-code.yml]() contents into your existing workflows, or place the file directly into your repository's /.github/workflows/ directory. If you are an advanced user, please feel free to look at the [actions.yml]() file that hosts the actual GitHub Dockerized Action content.
+
+# Using GitHub Actions
+There are few parameters that need to be changed in order to ensure the application is run correctly for your repository.
