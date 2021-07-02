@@ -30,7 +30,7 @@ def colorSchemeIntialize():
     MAIN_COLOR  = "\033[0m"   #WHITE
     OFF_COLOR   = "\033[37;1m"  #GRAY
   print("Color Scheme Input: {}".format(sys.argv[1]))
-  if len(sys.argv > 2):
+  if len(sys.argv) > 2:
     print("Application CI: {}".format(sys.argv[3]))
   else:
     print("Application CI: {}".format(sys.argv[2]))
