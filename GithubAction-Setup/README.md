@@ -52,3 +52,29 @@ _color_style:_ The default should be "dark". This input affects the coloring of 
 
 ### Optional:
 _ms-teams-webhook:_ This input is a link to a webhook connector on Teams. The Python script will format card-based message(s) containing the errors in your CloudFormation scripts. The resulting messages will to send to your webhook and will show up in your Teams channel. This is optional, and will only be done if this parameter is set. Leave it blank, like shown above, if you do not want to use this functionality. 
+
+## Outputs
+Defaulty, output will always be sent to the build log. If the user configured the webhook parameter, then output will be sent there also.
+#### Build Log
+Every file in the output will have a corresponding table containing its policy failures. Policies with no failures will not be included.
+
+![Failure-Ex](/res/failure-example.png)
+
+At the top, the path of the CloudFormation script relative to the VCS Root repository is shown. Each line in the table is a single policy failure. The specific rule is mentioned there, which can be used to trace back the required properties. 
+
+Additionally, a summary table containing a count of all the failures for each file is included.
+
+![Failure-Summary](/res/summary-table.png)
+
+This can be used to prioritize remediation efforts for each CloudFormation script.
+
+#### Teams Webhook
+The Teams output is very similar to that of the build log. A card is generated for every CloudFormation file that the CFN-Guard build-step scanned. Then, like the build log, the output provides the specific policy infringements for that failed check.
+
+![Webhook-Ex](/res/webhook_ex.png)
+
+Finally, a summary table is printed that shows which files failed and which ones passed.
+
+![Webhook-Summary](/res/webhook_summary.png)
+
+These resources should provide an iterative feedback loop which allows developers to quickly make the required security changes.
