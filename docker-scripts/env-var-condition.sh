@@ -5,5 +5,5 @@ for f in results/*; do
     exit 1
   fi
 done
-python /scripts/passed-check-teams.py ${3:-} $1
+python /scripts/passed-check-teams.py ${3:-}
 exit 0

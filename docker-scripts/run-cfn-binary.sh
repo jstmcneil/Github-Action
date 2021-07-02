@@ -29,7 +29,7 @@ do
 done
 echo -e "\n"
 # Runs next step w/ webhook attached.
-if [ -z "$3" ]; then
+if [ -z "$4" ]; then
   bash /scripts/env-var-condition.sh $2 $3
 else
   bash /scripts/env-var-condition.sh $2 $4 $3
