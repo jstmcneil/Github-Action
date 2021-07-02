@@ -151,12 +151,12 @@ def main():
   i, tot = 1, len(os.listdir('results/')) + 1
   for file in os.listdir('results/'):
     if (len(sys.argv) > 3):
-      createCard(file, i, tot, sys.argv[2], bad, good)
+      createCard(file, i, tot, sys.argv[3], bad, good)
     else:
       onlyCommandLine(file, i, tot, bad, good)
     i = i + 1
   if (len(sys.argv) > 3):
-    generateSummaryCard(sys.argv[2], tot, bad, good)
+    generateSummaryCard(sys.argv[3], tot, bad, good)
   bad = sort_tuple_list(bad)
   combined = bad + [("TOTAL", str(sum(int(i[1]) for i in bad)))]
   print("\n\033[31m✖ Failed: \033[0mTemplates failed policy checks.")
