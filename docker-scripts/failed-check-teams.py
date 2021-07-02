@@ -44,7 +44,6 @@ def createCard(filename, count: int, total: int, webhook: str, listOfBad: list, 
   raw_file_name = component_name[0] + "." + component_name[1]
   myTeamsMessage.text("**[" + str(count) + "/" + str(total) + "] CFN-GUARD REPORT FOR:** _" + raw_file_name + "_")
   if (os.stat('results/' + filename).st_size != 0):
-    header = ("{}Errors for {}[".format(MAIN_COLOR, OFF_COLOR) + raw_file_name + "]{} CloudFormation Template:".format(MAIN_COLOR))
     myTeamsMessage.color("#FF6347")
     # Creating Section
     totalIssues = pymsteams.cardsection()
@@ -56,18 +55,23 @@ def createCard(filename, count: int, total: int, webhook: str, listOfBad: list, 
 
     with open('results/' + filename, 'w') as program:
       output = ""
+      header = ""
+      footer = ""
       for (number, line) in enumerate(data):
-        if (number != (len(data) - 1)):
-          program.write('%d.  %s\n' % (number + 1, line))
-          myMessageSection.addFact(number + 1, line)
+        if (number == 0):
+          header = ("{}Errors for {}[".format(MAIN_COLOR, OFF_COLOR) + line.rstrip() + "]{} CloudFormation Template:".format(MAIN_COLOR))
+        elif (number != (len(data) - 1)):
+          program.write('%d.  %s\n' % (number, line))
+          output = output + ('{}{:<3s} {:>7s}\n\n'.format(MAIN_COLOR, str(number)+".", line))
+          line = re.sub("(.{200})", "\\1\n    ", line, 0, re.DOTALL)
           line = re.sub(r'\[(.*?)\]', r'{}'.format(OFF_COLOR) + '\g<0>' + '{}'.format(MAIN_COLOR), line.rstrip())
-          output = output + ('{}{:<3s} {:>7s}\n'.format(MAIN_COLOR, str(number+1)+".", line))
+          myMessageSection.addFact(number, line)
         else:
-          program.write('\n%s' % (line.rstrip()))
+          program.write('\n%s' % (line))
           footer = ('%s' % (line.rstrip()))
+          listOfBad.append((raw_file_name, line.split(":")[1]))
           toAdd = "**" + line.rstrip() + "**"
           totalIssues.activityText(toAdd)
-          listOfBad.append((raw_file_name, line.split(":")[1]))
     myMessageSection.activityText(body)
     myTeamsMessage.addSection(myMessageSection)
     myTeamsMessage.addSection(totalIssues)
