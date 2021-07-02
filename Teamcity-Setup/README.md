@@ -28,12 +28,7 @@ For direct usage within TeamCity, either clone this repo or download the [Projec
 ![alt text](/res/admin-page-gif.gif)
 
 2. Click on Project Import & select the download .zip as the source.
-
-![alt text](/res/project-import.gif)
-
 3. Fill out import scope.
-
-![alt text](/res/actual-import.gif)
 
 And with that, you should be able to run this project w/ your attached parameters! See the [Running The Pipeline](#Running-The-Pipeline) step for specific documentation related to this.
 
