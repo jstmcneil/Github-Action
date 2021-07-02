@@ -27,6 +27,5 @@ There is a slight difference between projects that already have GitHub actions c
 3. Copy and paste the contents of [policy-as-code.yml]() (located in this folder) over the pre-generated contents.
 4. Rename the file to policy-as-code.yml (or whatever you'd like.)
 
-That should be it!
 #### Existing Actions:
-Simply copy the [policy-as-code.yml]() contents into your existing workflows, or place the file directly into your repository's /.github/workflows/ directory.
+Simply copy the [policy-as-code.yml]() contents into your existing workflows, or place the file directly into your repository's /.github/workflows/ directory. If you are an advanced user, please feel free to look at the [actions.yml]() file that hosts the actual GitHub Dockerized Action content.
