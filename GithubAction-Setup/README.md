@@ -5,10 +5,10 @@ Table of Contents
    * [GitHub Actions Setup](#TeamCity-Setup)
       * [Duplicate Repository](#TeamCity-Setup)
       * [Retrofit Existing Repository](#TeamCity-Setup)
-   * [GitHub Action Setup]
-      * [Inputs]
-      * [Outputs]
-      * [Run Types] 
+   * [GitHub Action Setup]()
+      * [Inputs]()
+      * [Outputs]()
+      * [Run Types]() 
 <!--te-->
 
 # Github Actions Setup
