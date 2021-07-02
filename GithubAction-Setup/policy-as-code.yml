@@ -30,4 +30,6 @@ jobs:
         uses: ./.github/actions/Policy-as-Code
         with:
           rule-file-name: 'test.ruleset'
+          app_CI_key: 'TES'
+          ms-teams-webhook: ''
           color_style: 'dark'
