@@ -21,6 +21,25 @@ Parameters:
         The webhook to which your results will be sent to. Leave this blank (default option) if you do not
         want to send your data to a webhook.
       Default: ""
+  Application-CI:
+    Type: String
+    Description: >-
+      The 3-character application key (or "CI") belonging to your application.
+    Default: ""
+  Ruleset-Name:
+    Type: String
+    Description: >-
+      Name of the ruleset that your CloudFormation templates are run against.
+    Default: "ruleset_migrated.guard"
+  ColorScheme:
+    Type: String
+    Description: >-
+      The color scheme in which the build log failures will be printed in.
+    AllowedValues:
+      - "dark"
+      - "light"
+      - "default"
+    Default: "default"
 
 Resources:
   CodeBuildServiceRole:
