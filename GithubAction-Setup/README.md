@@ -2,10 +2,10 @@ Table of Contents
 =================
 <!--ts-->
    * [Table of Contents](#table-of-contents)
-   * [GitHub Actions Setup](#TeamCity-Setup)
+   * [GitHub Actions Import](#TeamCity-Setup)
       * [Duplicate Repository](#TeamCity-Setup)
       * [Retrofit Existing Repository](#TeamCity-Setup)
-   * [GitHub Action Setup]()
+   * [Using GitHub Action]()
       * [Inputs]()
       * [Outputs]()
       * [Run Types]() 
