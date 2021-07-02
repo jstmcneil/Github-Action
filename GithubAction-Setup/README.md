@@ -3,6 +3,12 @@ Table of Contents
 <!--ts-->
    * [Table of Contents](#table-of-contents)
    * [GitHub Actions Setup](#TeamCity-Setup)
+      * [Duplicate Repository](#TeamCity-Setup)
+      * [Retrofit Existing Repository](#TeamCity-Setup)
+   * [GitHub Action Setup]
+      * [Inputs]
+      * [Outputs]
+      * [Run Types] 
 <!--te-->
 
 # Github Actions Setup
