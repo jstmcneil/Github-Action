@@ -43,7 +43,6 @@ In order to actually change parameters/inputs, you must navigate to the _policy-
 
 ![GitHub Action Edit](/res/github-action-inputs.png)
 
-Note the input fields that must be editted:
 ### Required:
 _app_CI_key:_ this input should be your specific 3-letter Application ID. This input is utilized in the output process in order for cleaner build logs. Without this set, the application will fail.
 
