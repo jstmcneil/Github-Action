@@ -30,7 +30,7 @@ done
 echo -e "\n"
 # Runs next step w/ webhook attached.
 if [ -z "$3" ]; then
-  bash /scripts/env-var-condition.sh $2
+  bash /scripts/env-var-condition.sh $2 $3
 else
-  bash /scripts/env-var-condition.sh $3 $2
+  bash /scripts/env-var-condition.sh $2 $4 $3
 fi
