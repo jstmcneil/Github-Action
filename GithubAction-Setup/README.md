@@ -73,7 +73,7 @@ The Teams output is very similar to that of the build log. A card is generated f
 
 ![Webhook-Ex](/res/webhook_ex.png)
 
-Finally, a summary table is printed that shows which files failed and which ones passed.
+Finally, a summary table is printed that shows which files failed and which ones passed. It will also provide details on the number of policy failures for each file. This can be utilized as some form of objective remediation prioritization.
 
 ![Webhook-Summary](/res/webhook_summary.png)
 
