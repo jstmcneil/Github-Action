@@ -1,0 +1,27 @@
+<meta-runner name="PaC-Dockerized">
+  <description>A metarunner of the dockerized build-step for UAL consumption.</description>
+  <settings>
+    <parameters>
+      <param name="app-key-CI" value="test" />
+      <param name="color_scheme" value="light" spec="select display='normal' data_2='light' data_1='dark' data_3='default'" />
+      <param name="github-cfm-repo" value="https://github.com/jstmcneil/PaC-JSON-Demo" spec="text description='This is link to the repo where your CloudFormation template(s) lives. All templates will run against the supplied rule file.' label='CloudFormation Template Repo' validationMode='not_empty' display='normal'" />
+      <param name="github-repo-password" value="zxx271147ea2b33024b669740e42eb8a4ec" spec="password description='Password for Github Repo storing the wanted cfn-template.' label='GitHub Password' display='normal'" />
+      <param name="github-repo-username" value="jstmcneil" spec="text description='Username for GitHub authentication. Authenticate to repo where cloudformation template is stored.' label='GitHub Username' validationMode='not_empty' display='normal'" />
+      <param name="ruleset-file" value="ruleset_migrated.guard" spec="select description='Name of ruleset file to evaluate templates against. Found in rule repository, under policies/.' label='Ruleset File Name' data_1='global_policies.ruleset' display='normal'" />
+      <param name="webhook-url" value="https://pwc.webhook.office.com/webhookb2/52503b7c-8714-41eb-a4cc-ee84208cefdb@513294a0-3e20-41b2-a970-6d30bf1546fa/IncomingWebhook/45102b9583d64782813662eb292d31b3/419052e6-6447-4db2-b448-1d7f1a9eb05e" spec="text description='This is the URL to your Teams webhook. This field is hidden since no authentication is natively required for webhooks.' label='Webhook' validationMode='any' display='normal'" />
+    </parameters>
+    <build-runners>
+      <runner name="CFN-Guard-Docker" type="simpleRunner">
+        <parameters>
+          <param name="command.executable" value="/scripts/run-cfn-binary.sh" />
+          <param name="command.parameters" value="&quot;%ruleset-file%&quot; &quot;%app-key-CI%&quot; &quot;%color_scheme%&quot; &quot;%webhook-url%&quot;" />
+          <param name="plugin.docker.imageId" value="artifactory.ual.com/oetdevops/security-images/cfn-guard-pac:2.0" />
+          <param name="plugin.docker.pull.enabled" value="true" />
+          <param name="script.content" value="echo &quot;STARTING DOCKER STEPS:&quot;" />
+          <param name="teamcity.step.mode" value="default" />
+        </parameters>
+      </runner>
+    </build-runners>
+    <requirements />
+  </settings>
+</meta-runner>
