@@ -2,7 +2,7 @@
 This serves as the Policy-as-Code repository. All code developed in TeamCity, AWS CodePiplines and Github Actions for UAL exists within this repository for ease-of-access and future usability. All script elements have been dockerized within the provided Dockerfile in this repository. This allows for management to minimize matineince, and gives the ability to update in one place and affect several pipelines. When the project is run, it will use CloudFormation Guard to scan a given github repository with a given ruleset. Results from that run will then (optionally) be sent to a provided Microsoft Teams webhook.
 
 This repository contains several useful elements for PaC:
-1. Set-up for TeamCity is located [here](/TeamCity-Setup).
+1. Set-up for TeamCity is located [here](/Teamcity-Setup).
 2. Set-up for GitHub Actions is located [here](/GithubAction-Setup).
 3. Set-up for AWS CodePipelines is located [here](/CodePipeline-Setup).
 
