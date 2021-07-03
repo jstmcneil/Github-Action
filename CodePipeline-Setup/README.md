@@ -232,3 +232,27 @@ Finally, CodeBuild is given internal permissions to create report groups for out
 # AWS Pipeline Usage
 As it is configured now, it is only possible to run the Pipeline manually. This is done by navigating to the pipeline page and clicking "release changes." Another option is to trigger the build through the CLI. It should also be mentioned that you can configure additional (non-manual) triggers for your pipeline. If this appeals to you, it is reccomended that you view [this documentation](https://aws.amazon.com/blogs/devops/adding-custom-logic-to-aws-codepipeline-with-aws-lambda-and-amazon-cloudwatch-events/).
 ## Outputs
+By default, output will always be sent to the build log. If the user configured the webhook parameter, then output will be sent there also.
+#### Build Log
+Every file in the output will have a corresponding table containing its policy failures. Policies with no failures will not be included.
+
+![Failure-Ex](/res/failure-example.png)
+
+At the top, the path of the CloudFormation script relative to the VCS Root repository is shown. Each line in the table is a single policy failure. The specific rule is mentioned there, which can be used to trace back the required properties. 
+
+Additionally, a summary table containing a count of all the failures for each file is included.
+
+![Failure-Summary](/res/summary-table.png)
+
+This can be used to prioritize remediation efforts for each CloudFormation script.
+
+#### Teams Webhook
+The Teams output is very similar to that of the build log. A card is generated for every CloudFormation file that the CFN-Guard build-step scanned. Then, like the build log, the output provides the specific policy infringements for that failed check.
+
+![Webhook-Ex](/res/webhook_ex.png)
+
+Finally, a summary table is printed that shows which files failed and which ones passed. It will also provide details on the number of policy failures for each file. This can be utilized as some form of objective remediation prioritization.
+
+![Webhook-Summary](/res/webhook_summary.png)
+
+These resources should provide an iterative feedback loop which allows developers to quickly make the required security changes.
