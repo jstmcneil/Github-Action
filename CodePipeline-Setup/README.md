@@ -144,15 +144,17 @@ Note the following:
 ### 2. Permissions
 Please view the [CloudFormation source file](./intial-cfn-test-template.yaml) to see the example role and policy: CodePipelineServiceRole & CodePipelineServicePolicy. This section will quickly highlight the permissions that the policy provides.
 
-####S3
+#### S3
 There are three S3 statements in this policy:
 1. GetBucketVersioning and PutBucketVersioning are applied to the bucket defined in the parameters section.
 2. GetObjectVersion and GetObject are applied directly to the S3RepoObjectKey item. This gives the Pipeline the ability to pull down the .zip file.
 3. PutObject, GetObject and GetObjectVersion are provided to the bucket codepipeline-us-east-1-* . This wildcard figure at the end matches any bucket that begins with "codepipeline-us-east-1-". In short, this policy allows the pipeline to publish any necessary artifacts.
 
-####CodeBuild: BatchGetBuildBatches, StartBuildBatch, StartBuild, and BatchGetBuilds are provided to the CodePipeline role. This allows the pipeline resource to start builds and retrieve information about them. This access is granted across all CodeBuild resources, however you can lock yours down depending on your pipeline's scope.
+#### CodeBuild 
+BatchGetBuildBatches, StartBuildBatch, StartBuild, and BatchGetBuilds are provided to the CodePipeline role. This allows the pipeline resource to start builds and retrieve information about them. This access is granted across all CodeBuild resources, however you can lock yours down depending on your pipeline's scope.
 
-####CloudWatch: unrestricted access to CloudWatch is granted in this instance for logging purposes. It is reccomended you employ least privileges and lock down the permissions to provide access only authorized resources.
+#### CloudWatch 
+unrestricted access to CloudWatch is granted in this instance for logging purposes. It is reccomended you employ least privileges and lock down the permissions to provide access only authorized resources.
 
 ## CodeBuild
 ### 1. ECR Setup
@@ -214,6 +216,18 @@ Note the following details:
 3. Finally, note that the ServiceRole is set to CodeBuildServiceRole.Arn. This role and the policy attached will be discussed in the next section.
 
 ### 3. Permissions
+Please view the [CloudFormation source file](./intial-cfn-test-template.yaml) to see the example role and policy: CodeBuildServiceRole & CodeBuildServicePolicy. This section will quickly highlight the permissions that the policy provides.
+#### ECR
+The CodeBuild resource receives the GetAuthorizationToken and BatchGetImage (in addition to other actions) permissions in order to access and download the CFN-Guard image.
+
+#### Logs
+The CodeBuild job is allowed to create LogGroups and LogStreams. Additionally, it is provided permissions to post (PutLogEvents) to these streams.
+
+#### S3
+The CodeBuild job is given access to the same codepipeline-us-east-1-* S3 bucket as the CodePipeline resource. This is for internal artifact reporting.
+
+#### CodeBuild
+Finally, CodeBuild is given internal permissions to create report groups for outputting purposes. This allows for the CodeBuild job to post to the build log.
 
 # AWS Pipeline Usage
 ## Inputs
