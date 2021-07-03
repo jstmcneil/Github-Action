@@ -11,7 +11,6 @@ Table of Contents
         2. [Setup/Variables](#2-SetupVariables)
         3. [Permissions](#3-Permissions)
    * [AWS Pipeline Usage](#AWS-Pipeline-Usage)
-      * [Inputs](#inputs)
       * [Outputs](#outputs)
 <!--te-->
 
