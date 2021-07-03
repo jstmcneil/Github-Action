@@ -230,5 +230,5 @@ The CodeBuild job is given access to the same codepipeline-us-east-1-* S3 bucket
 Finally, CodeBuild is given internal permissions to create report groups for outputting purposes. This allows for the CodeBuild job to post to the build log.
 
 # AWS Pipeline Usage
-## Inputs
+As it is configured now, it is only possible to run the Pipeline manually. This is done by navigating to the pipeline page and clicking "release changes." Another option is to trigger the build through the CLI. It should also be mentioned that you can configure additional (non-manual) triggers for your pipeline. If this appeals to you, it is reccomended that you view [this documentation](https://aws.amazon.com/blogs/devops/adding-custom-logic-to-aws-codepipeline-with-aws-lambda-and-amazon-cloudwatch-events/).
 ## Outputs
