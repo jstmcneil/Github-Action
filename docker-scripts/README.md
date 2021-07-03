@@ -5,6 +5,8 @@ There are two bash scripts used in this project.
 
 **env-var-condition.sh**: Natively, the _cfn-guard_ binary does not produce stdout when no rule violations are found. This script evaluates if any output was produced for any of the scanned CloudFormation files, and then sets an enviroment variable in order to conditionally run one of the two python scripts.
 
+**cfn-guard-data-wrangle.sh**: This was added so that any subsequent updates to the CFN-Guard command scheme could be addressed. This file isolates the actual calling of the binary in order for changes to be made quickly.
+
 ### Python Scripts
 There are three python scripts used in this project.
 
