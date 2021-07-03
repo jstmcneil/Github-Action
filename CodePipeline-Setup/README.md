@@ -154,7 +154,7 @@ There are three S3 statements in this policy:
 BatchGetBuildBatches, StartBuildBatch, StartBuild, and BatchGetBuilds are provided to the CodePipeline role. This allows the pipeline resource to start builds and retrieve information about them. This access is granted across all CodeBuild resources, however you can lock yours down depending on your pipeline's scope.
 
 #### CloudWatch 
-unrestricted access to CloudWatch is granted in this instance for logging purposes. It is reccomended you employ least privileges and lock down the permissions to provide access only authorized resources.
+Unrestricted access to CloudWatch is granted in this instance for logging purposes. It is reccomended you employ least privileges and lock down the permissions to provide access only authorized resources.
 
 ## CodeBuild
 ### 1. ECR Setup
