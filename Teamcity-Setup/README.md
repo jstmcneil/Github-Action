@@ -127,7 +127,7 @@ _webhook-url:_ This input is a link to a **webhook connector on Teams**. The Pyt
 
 
 ## Outputs
-Defaulty, output will always be sent to the build log. If the user configured the webhook parameter, then output will be sent there also.
+By default, output will always be sent to the build log. If the user configured the webhook parameter, then output will be sent there also.
 #### Build Log
 Every file in the output will have a corresponding table containing its policy failures. Policies with no failures will not be included.
 
