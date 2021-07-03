@@ -6,7 +6,7 @@ This repository contains several useful elements for PaC:
 2. Set-up for GitHub Actions is located [here](/GithubAction-Setup).
 3. Set-up for AWS CodePipelines is located [here](/CodePipeline-Setup).
 
-Additionally, all the source-code can be found under [/docker-scripts] for any extensibility. The Dockerfile in which all the CI/CD build steps run in is located [here](/Dockerfile).
+Additionally, all the source-code can be found under [/docker-scripts](/docker-scripts) for any extensibility. The Dockerfile in which all the CI/CD build steps run in is located [here](/Dockerfile).
 
 ## TeamCity Usage
 #### Overview
