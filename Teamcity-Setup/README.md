@@ -45,7 +45,7 @@ You can either import this manually, or use a metarunner. This metarunner is loc
 
 Since the solution/scripts are entirely localized to a docker image, only a single build step is needed. Create a command-line build-step which will be used to call the docker-run command. There are certain parameters referenced in this step, as shown below. It's important to maintain the **order** in which the arguments are passed to the docker command. If you do not want to utilize a Teams webhook (descibed in inputs), then just leave the parameter itself empty.
 
-![Build Step](/res/manual_import_build_step.png)
+![Build Step](/res/border-pac-build.png)
 
 Make sure you pull the correct image. For easy copy/paste, the image is below:
 ```
