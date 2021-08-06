@@ -1,15 +1,13 @@
 FROM python:3
 # SET PROXY/CERT INFO
-ENV HTTP_PROXY="http://gatewayndc.ual.com:80"
-ENV HTTPS_PROXY="http://gatewayndc.ual.com:80"
 
 # Downloads Relevant Python Libraries
-RUN pip3 install --proxy=http://gatewayndc.ual.com:80 pymsteams
-RUN pip3 install --proxy=http://gatewayndc.ual.com:80 pyyaml
-RUN pip3 install --proxy=http://gatewayndc.ual.com:80 tabulate
+RUN pip3 install pymsteams
+RUN pip3 install pyyaml
+RUN pip3 install tabulate
 
 # Installs CFN-GUARD
-RUN wget -e use_proxy=yes -e HTTPS_PROXY="http://gatewayndc.ual.com:80" https://github.com/aws-cloudformation/cloudformation-guard/releases/download/2.0.3/cfn-guard-v2-ubuntu-latest.tar.gz
+RUN wget https://github.com/aws-cloudformation/cloudformation-guard/releases/download/2.0.3/cfn-guard-v2-ubuntu-latest.tar.gz
 RUN tar -xvf cfn-guard-v2-ubuntu-latest.tar.gz
 RUN cp -R cfn-guard-v2-ubuntu-latest/cfn-guard /usr/sbin
 
