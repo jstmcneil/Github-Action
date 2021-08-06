@@ -43,9 +43,9 @@ def createCard(filename, count: int, total: int, webhook: str, listOfBad: list, 
   component_name = filename.split(".")
   raw_file_name = component_name[0] + "." + component_name[1]
   if len(sys.argv) > 3:
-    myTeamsMessage.text("** APP-CI: {} ["..format(sys.argv[3]) + str(count) + "/" + str(total) + "] CFN-GUARD REPORT FOR:** _" + raw_file_name + "_")
+    myTeamsMessage.text("**[" + str(count) + "/" + str(total) + "] APP-CI: {} CFN-GUARD REPORT FOR:** _".format(sys.argv[3]) + raw_file_name + "_")
   else:
-    myTeamsMessage.text("** APP-CI: {} [".format(sys.argv[2]) + str(count) + "/" + str(total) + "] CFN-GUARD REPORT FOR:** _" + raw_file_name + "_")
+    myTeamsMessage.text("**[" + str(count) + "/" + str(total) + "] APP-CI: {} CFN-GUARD REPORT FOR:** _".format(sys.argv[2]) + raw_file_name + "_")
   if (os.stat('results/' + filename).st_size != 0):
     myTeamsMessage.color("#FF6347")
     # Creating Section
@@ -94,9 +94,9 @@ def generateSummaryCard(webhook: str, total: str, listOfBad: list, listOfGood: l
   myTeamsMessage = pymsteams.connectorcard(webhook)
   myTeamsMessage.color("#0000FF")
   if len(sys.argv) > 3:
-      myTeamsMessage.text("** APP-CI: {} [".format(sys.argv[3])  + str(total) + "/" + str(total).strip() + "] CFN-GUARD DIGEST & SUMMARY**")
+      myTeamsMessage.text("**["  + str(total) + "/" + str(total).strip() + "] APP-CI: {} CFN-GUARD DIGEST & SUMMARY**".format(sys.argv[3]))
   else:
-      myTeamsMessage.text("** APP-CI: {} [".format(sys.argv[2])  + str(total) + "/" + str(total).strip() + "] CFN-GUARD DIGEST & SUMMARY**")
+      myTeamsMessage.text("**[" + str(total) + "/" + str(total).strip() + "] APP-CI: {} CFN-GUARD DIGEST & SUMMARY**".format(sys.argv[2]))
   if listOfBad:
     badSection = pymsteams.cardsection()
     badSection.activityText("❌ The following templates have failed baseline checks:")
