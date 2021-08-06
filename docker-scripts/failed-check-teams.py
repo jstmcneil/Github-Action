@@ -42,7 +42,10 @@ def createCard(filename, count: int, total: int, webhook: str, listOfBad: list, 
   myMessageSection = pymsteams.cardsection()
   component_name = filename.split(".")
   raw_file_name = component_name[0] + "." + component_name[1]
-  myTeamsMessage.text("**[" + str(count) + "/" + str(total) + "] CFN-GUARD REPORT FOR:** _" + raw_file_name + "_")
+  if len(sys.argv) > 3:
+    myTeamsMessage.text("**[{}".format(sys.argv[3]) + str(count) + "/" + str(total) + "] CFN-GUARD REPORT FOR:** _" + raw_file_name + "_")
+  else:
+    myTeamsMessage.text("**[{}".format(sys.argv[2]) + str(count) + "/" + str(total) + "] CFN-GUARD REPORT FOR:** _" + raw_file_name + "_")
   if (os.stat('results/' + filename).st_size != 0):
     myTeamsMessage.color("#FF6347")
     # Creating Section
