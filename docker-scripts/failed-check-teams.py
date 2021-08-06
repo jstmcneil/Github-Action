@@ -94,9 +94,9 @@ def generateSummaryCard(webhook: str, total: str, listOfBad: list, listOfGood: l
   myTeamsMessage = pymsteams.connectorcard(webhook)
   myTeamsMessage.color("#0000FF")
   if len(sys.argv) > 3:
-      myTeamsMessage.text("** APP-CI: {} ["..format(sys.argv[3])  + str(total) + "/" + str(total).strip() + "] CFN-GUARD DIGEST & SUMMARY**")
+      myTeamsMessage.text("** APP-CI: {} [".format(sys.argv[3])  + str(total) + "/" + str(total).strip() + "] CFN-GUARD DIGEST & SUMMARY**")
   else:
-      myTeamsMessage.text("** APP-CI: {} ["..format(sys.argv[2])  + str(total) + "/" + str(total).strip() + "] CFN-GUARD DIGEST & SUMMARY**")
+      myTeamsMessage.text("** APP-CI: {} [".format(sys.argv[2])  + str(total) + "/" + str(total).strip() + "] CFN-GUARD DIGEST & SUMMARY**")
   if listOfBad:
     badSection = pymsteams.cardsection()
     badSection.activityText("❌ The following templates have failed baseline checks:")
