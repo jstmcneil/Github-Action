@@ -12,7 +12,7 @@ Additionally, all the source-code can be found under [/docker-scripts](/docker-s
 #### Overview
 The following serves as a high-level flowchart of the component source files as organized in TeamCity. It should be noted that two types of scripting files are utilized in this project - bash and python scripts. All steps here are contained within the Docker image, with the exception of the inputs.
 
-![alt text](https://github.com/jstmcneil/Github-Action/blob/main/res/pac-flow-readme.png)
+![alt text](/res/pac-flow-readme.png)
 
 ### Inputs 
 **CFM REPO**: a link to the repository where your CloudFormation templates live.
